@@ -4,26 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="vXqo5yNEdIQhF9WjOouZ51JBLEvItwu0CRqMoTfcXB4" />
-  <meta name="description" content="PCP Digital Hub Sikar - NEET/JEE Study Material, Official Schedules, Daily DPP and Notes." />
-  <meta name="theme-color" content="#041208" />
+  <meta name="description" content="PCP Premium Digital Studio - Private In-App Video and Quiz Engine Terminal." />
+  <meta name="theme-color" content="#030905" />
   <title>PCP Premium Digital Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg-dark: #040c06;
-      --glass-bg: rgba(255, 255, 255, 0.03);
-      --glass-border: rgba(255, 255, 255, 0.08);
-      --gold: #ffd700;
+      --bg-dark: #030a04;
+      --glass-bg: rgba(255, 255, 255, 0.02);
+      --glass-border: rgba(255, 255, 255, 0.07);
+      --gold: #f1c40f;
       --neon-green: #2ecc71;
       --emerald: #1abc9c;
-      --mint: #a3e4d7;
       --text-main: #ffffff;
-      --text-muted: #9bb0a3;
-      --red: #ff4d4d;
+      --text-muted: #8ba192;
+      --red: #e74c3c;
     }
 
     body {
@@ -31,241 +33,494 @@
       background: var(--bg-dark);
       color: var(--text-main);
       min-height: 100vh;
-      padding-bottom: 90px;
+      padding-bottom: 95px;
       overflow-x: hidden;
       position: relative;
     }
 
-    /* 🌊 PREMIUM GREEN GRADIENT BLUR ORBS */
-    body::before, body::after {
-      content: ''; position: fixed; width: 320px; height: 320px; border-radius: 50%; z-index: -1; filter: blur(130px); opacity: 0.25; pointer-events: none;
+    /* Subtle Premium Glow Layer */
+    body::before {
+      content: ''; position: fixed; width: 350px; height: 350px; border-radius: 50%; z-index: -1; filter: blur(140px); opacity: 0.15; pointer-events: none; top: -50px; left: -50px; background: linear-gradient(45deg, var(--neon-green), var(--emerald));
     }
-    body::before { top: -60px; left: -60px; background: linear-gradient(45deg, var(--neon-green), var(--emerald)); }
-    body::after { bottom: 40px; right: -60px; background: linear-gradient(45deg, var(--emerald), #114b29); }
 
-    /* ══ TOP BAR ══ */
+    /* ══ TOP BAR HINT FOR DEV CONTROL ══ */
     .topbar {
       background: rgba(255, 255, 255, 0.01); backdrop-filter: blur(5px);
-      color: var(--text-muted); font-size: 11px; padding: 9px 20px; text-align: center;
+      color: var(--text-muted); font-size: 11px; padding: 12px 20px; text-align: center;
       border-bottom: 1px solid var(--glass-border); font-weight: 500; letter-spacing: 0.5px;
     }
+    .secret-trigger { cursor: default; user-select: none; }
+    .secret-trigger:active { color: var(--neon-green); }
 
-    /* ══ GLASS HEADER ══ */
+    /* ══ PREMIUM CLEAN HEADER ══ */
     header {
-      background: rgba(4, 12, 6, 0.8); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-      border-bottom: 1px solid var(--glass-border); padding: 22px 20px;
-      display: flex; align-items: center; gap: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      background: rgba(3, 10, 4, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--glass-border); padding: 20px;
+      display: flex; align-items: center; gap: 14px;
     }
-    .logo-wrap img { width: 68px; height: 68px; border-radius: 50%; border: 2px solid var(--neon-green); box-shadow: 0 0 15px rgba(46,204,113,0.25); background: #fff; padding: 2px; }
-    .header-info .tag { display: inline-block; background: rgba(46, 204, 113, 0.08); border: 1px solid rgba(46,204,113,0.3); color: var(--neon-green); font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 20px; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px; }
-    .header-info h1 { font-size: 22px; font-weight: 800; }
+    .logo-wrap img { width: 60px; height: 60px; border-radius: 50%; border: 2px solid var(--neon-green); background: #fff; padding: 2px; }
+    .header-info h1 { font-size: 20px; font-weight: 800; }
     .header-info h1 span { background: linear-gradient(45deg, var(--neon-green), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .header-info p { font-size: 11.5px; color: var(--text-muted); }
+    .header-info p { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
 
-    /* ══ NAVIGATION ══ */
-    .nav-strip { background: rgba(0,0,0,0.2); display: flex; overflow-x: auto; border-bottom: 1px solid var(--glass-border); }
+    /* ══ HORIZONTAL NAVIGATION STRIP ══ */
+    .nav-strip { background: rgba(0,0,0,0.3); display: flex; overflow-x: auto; border-bottom: 1px solid var(--glass-border); }
     .nav-strip::-webkit-scrollbar { display: none; }
-    .nav-item { padding: 14px 22px; color: var(--text-muted); font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.3s; position: relative; }
+    .nav-item { padding: 14px 20px; color: var(--text-muted); font-size: 12.5px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.2s; position: relative; }
     .nav-item.active { color: var(--neon-green); }
-    .nav-item.active::after { content: ''; position: absolute; bottom: 0; left: 22px; right: 22px; height: 2px; background: var(--neon-green); box-shadow: 0 0 8px var(--neon-green); border-radius: 2px; }
+    .nav-item.active::after { content: ''; position: absolute; bottom: 0; left: 20px; right: 20px; height: 2px; background: var(--neon-green); box-shadow: 0 0 6px var(--neon-green); }
 
-    /* ══ CONTAINER & LAYOUTS ══ */
-    .container { max-width: 800px; margin: 0 auto; padding: 22px 14px; }
+    /* ══ APPLICATION CONTAINER ══ */
+    .container { max-width: 800px; margin: 0 auto; padding: 20px 14px; }
     .tab-section { display: none; }
-    .tab-section.active { display: block; animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-    @keyframes slideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .tab-section.active { display: block; animation: cleanFade 0.3s ease-out; }
+    @keyframes cleanFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
-    .sec-head { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; margin-top: 5px; }
-    .sec-head .bar { width: 4px; height: 18px; background: var(--neon-green); box-shadow: 0 0 8px var(--neon-green); border-radius: 2px; }
-    .sec-head h2 { font-size: 15px; font-weight: 700; letter-spacing: 0.3px; }
+    .sec-head { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+    .sec-head .bar { width: 3.5px; height: 16px; background: var(--neon-green); box-shadow: 0 0 6px var(--neon-green); border-radius: 2px; }
+    .sec-head h2 { font-size: 14.5px; font-weight: 700; letter-spacing: 0.3px; }
 
-    /* HERO CARD */
-    .hero-rutba-card {
-      background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005));
-      border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; padding: 22px;
-      margin-bottom: 22px; position: relative; overflow: hidden;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
-    }
-    .hero-welcome { font-size: 12px; color: var(--gold); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
-    .hero-title { font-size: 24px; font-weight: 800; line-height: 1.3; margin-bottom: 12px; background: linear-gradient(90deg, #fff, var(--mint)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    
-    .status-badge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
-    .status-node {
-      background: rgba(0, 0, 0, 0.3); border: 1px solid var(--glass-border); padding: 12px 14px; border-radius: 12px;
-    }
-    .status-node h4 { font-size: 10.5px; color: var(--text-muted); text-transform: uppercase; }
-    .status-node p { font-size: 13.5px; font-weight: 700; margin-top: 3px; color: #fff; }
+    .glass-card { background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; margin-bottom: 20px; }
+    .card-head { background: rgba(255,255,255,0.01); padding: 12px 16px; border-bottom: 1px solid var(--glass-border); }
+    .card-head h3 { font-size: 13px; font-weight: 700; color: #fff; }
 
-    /* CARD DESIGN */
-    .glass-card {
-      background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--glass-border); border-radius: 16px; overflow: hidden; margin-bottom: 22px;
-    }
-    .card-head { background: rgba(255,255,255,0.01); padding: 14px 18px; border-bottom: 1px solid var(--glass-border); display: flex; align-items: center; gap: 10px; }
-    .card-head h3 { font-size: 14px; font-weight: 700; color: #fff; }
+    /* ══ SEEDHA SADHA HOME ARCHITECTURE ══ */
+    .home-profile-card { background: rgba(255,255,255,0.01); border: 1px solid var(--glass-border); border-radius: 14px; padding: 20px; margin-bottom: 20px; }
+    .home-welcome { font-size: 11px; color: var(--neon-green); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+    .home-title { font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .home-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
 
-    .sch-row { display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-bottom: 1px solid var(--glass-border); }
+    .status-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+    .status-node { background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); padding: 12px; border-radius: 10px; }
+    .status-node h4 { font-size: 10px; color: var(--text-muted); text-transform: uppercase; }
+    .status-node p { font-size: 13px; font-weight: 700; margin-top: 2px; color: #fff; }
+
+    /* ══ NOTIFICATIONS (SUCHNA PAGE) ══ */
+    .notice-wrapper { display: flex; flex-direction: column; gap: 12px; }
+    .notice-card { background: linear-gradient(135deg, rgba(46,204,113,0.04), rgba(255,255,255,0.01)); border: 1px solid var(--glass-border); border-radius: 12px; padding: 16px; position: relative; }
+    .notice-card::before { content: ''; position: absolute; left: 0; top: 16px; bottom: 16px; width: 3px; background: var(--neon-green); border-radius: 0 4px 4px 0; }
+    .notice-time { font-size: 9.5px; color: var(--text-muted); font-weight: 600; margin-bottom: 4px; text-transform: uppercase; }
+    .notice-body { font-size: 13px; font-weight: 500; color: #fff; line-height: 1.5; white-space: pre-wrap; }
+
+    /* ══ LIVE IN-APP VIDEO LECTURES ══ */
+    .video-grid { display: flex; flex-direction: column; gap: 16px; padding: 12px; }
+    .video-card { background: rgba(0,0,0,0.25); border: 1px solid var(--glass-border); border-radius: 12px; overflow: hidden; }
+    .video-wrapper-box { position: relative; width: 100%; background: #000; }
+    .video-wrapper-box video { width: 100%; display: block; max-height: 420px; background: #000; outline: none; }
+    .video-info { padding: 12px 14px; border-top: 1px solid var(--glass-border); }
+    .video-title { font-size: 13.5px; font-weight: 700; color: #fff; }
+
+    /* ══ SCHEDULE ROWS ══ */
+    .sch-row { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-bottom: 1px solid var(--glass-border); }
     .sch-row:last-child { border-bottom: none; }
-    .sch-icon { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); }
-    .sch-text { font-size: 13px; font-weight: 600; line-height: 1.5; }
-    
-    .sch-badge { margin-left: auto; padding: 3px 10px; border-radius: 20px; font-size: 10px; font-weight: 700; text-transform: uppercase; }
-    .badge-green { background: rgba(46,204,113,0.12); color: var(--neon-green); border: 1px solid var(--neon-green); }
-    .badge-red { background: rgba(255,77,77,0.12); color: var(--red); border: 1px solid var(--red); }
+    .sch-icon { width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); }
+    .sch-text { font-size: 12.5px; font-weight: 600; }
+    .sch-badge { margin-left: auto; padding: 3px 10px; border-radius: 20px; font-size: 9.5px; font-weight: 700; text-transform: uppercase; }
+    .badge-green { background: rgba(46,204,113,0.1); color: var(--neon-green); border: 1px solid rgba(46,204,113,0.3); }
+    .badge-red { background: rgba(231,76,60,0.1); color: var(--red); border: 1px solid rgba(231,76,60,0.3); }
 
-    /* RESOURCE MATRIX FILES */
-    .paper-list { list-style: none; padding: 12px; display: flex; flex-direction: column; gap: 8px; }
-    .paper-list li a {
-      display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.01); border: 1px solid var(--glass-border); border-radius: 10px; padding: 12px 14px; text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 13px; transition: all 0.2s;
-    }
-    .paper-list li a:hover { background: rgba(46,204,113,0.04); border-color: var(--neon-green); }
-    .paper-list li a .dl-arrow { margin-left: auto; background: linear-gradient(45deg, var(--neon-green), var(--emerald)); color: #000; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; }
+    /* ══ PAPERS RESOURCE DOWNLOADS ══ */
+    .paper-list { list-style: none; padding: 10px; display: flex; flex-direction: column; gap: 8px; }
+    .paper-list li a { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.01); border: 1px solid var(--glass-border); border-radius: 8px; padding: 12px; text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 12.5px; }
+    .paper-list li a .dl-arrow { margin-left: auto; background: linear-gradient(45deg, var(--neon-green), var(--emerald)); color: #000; padding: 3px 9px; border-radius: 5px; font-size: 10.5px; font-weight: 700; }
 
-    /* CHAT PANELS */
-    .chat-messages { height: 350px; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 12px; background: rgba(0,0,0,0.2); }
-    .msg { display: flex; gap: 10px; max-width: 85%; }
-    .msg.user { align-self: flex-end; flex-direction: row-reverse; }
-    .msg.bot { align-self: flex-start; }
-    .msg-avatar { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; background: rgba(255,255,255,0.06); border: 1px solid var(--glass-border); }
-    .msg-bubble { padding: 10px 14px; border-radius: 14px; font-size: 12.5px; line-height: 1.6; white-space: pre-wrap; }
-    .msg.bot .msg-bubble { background: rgba(255,255,255,0.02); color: #e1e7ee; border: 1px solid var(--glass-border); }
-    .msg.user .msg-bubble { background: linear-gradient(135deg, #0b2214, #040c06); border: 1px solid rgba(46,204,113,0.2); color: #fff; }
-    
-    .chat-input-container { background: rgba(0,0,0,0.2); border-top: 1px solid var(--glass-border); }
-    .chat-input-row { display: flex; gap: 8px; padding: 10px 14px; align-items: center; }
-    .chat-input-row input[type="text"] { flex: 1; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); border-radius: 20px; padding: 9px 16px; font-size: 12.5px; color: #fff; outline: none; }
-    .chat-input-row input[type="text"]:focus { border-color: var(--neon-green); }
-    .chat-send-btn { background: linear-gradient(45deg, var(--neon-green), var(--emerald)); color: #000; border: none; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; font-weight: bold; }
+    /* ══ INTERACTIVE MINI MOCK QUIZ AREA ══ */
+    .quiz-box-wrapper { padding: 16px; }
+    .q-text { font-size: 13.5px; font-weight: 700; margin-bottom: 12px; color: #fff; line-height: 1.5; }
+    .option-label { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.01); border: 1px solid var(--glass-border); padding: 12px; border-radius: 8px; margin-bottom: 8px; font-size: 12.5px; cursor: pointer; transition: background 0.2s; }
+    .option-label:hover { background: rgba(46,204,113,0.03); }
+    .option-label input { accent-color: var(--neon-green); }
+    .quiz-submit-btn { width: 100%; background: linear-gradient(45deg, var(--neon-green), var(--emerald)); color: #000; border: none; padding: 12px; border-radius: 8px; font-weight: 800; font-size: 12.5px; cursor: pointer; text-transform: uppercase; margin-top: 10px; }
+    .quiz-result-card { padding: 14px; border-radius: 10px; margin-top: 14px; display: none; text-align: center; font-size: 12.5px; }
 
-    /* FIXED APP BAR */
-    .bottom-premium-bar {
-      position: fixed; bottom: 0; left: 0; right: 0;
-      background: rgba(4, 12, 6, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      display: flex; justify-content: space-around; padding: 8px 0 12px;
-      border-top: 1px solid var(--glass-border); z-index: 200;
-    }
+    /* ══ FIXED NAVIGATION BAR FOR MOBILE/WEB ══ */
+    .bottom-premium-bar { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(3, 10, 4, 0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); display: flex; justify-content: space-around; padding: 8px 0 12px; border-top: 1px solid var(--glass-border); z-index: 200; }
     .bbar-item { text-align: center; color: var(--text-muted); font-size: 10px; font-weight: 500; cursor: pointer; flex: 1; }
-    .bbar-item .icon { font-size: 19px; margin-bottom: 2px; display: block; }
+    .bbar-item .icon { font-size: 18px; margin-bottom: 2px; display: block; }
     .bbar-item:hover, .bbar-item.active { color: var(--neon-green); }
 
-    footer { text-align: center; padding: 20px; font-size: 11px; color: var(--text-muted); margin-bottom: 45px; }
+    /* ══ SECURE DECK OVERLAYS & CONTROLS ══ */
+    .overlay { display: none; position: fixed; inset: 0; background: rgba(2, 6, 3, 0.96); backdrop-filter: blur(10px); z-index: 300; align-items: center; justify-content: center; padding: 16px; overflow-y: auto; }
+    .overlay.active { display: flex; }
+    .pass-box { background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); border-radius: 14px; padding: 22px; width: 100%; max-width: 300px; text-align: center; }
+    .pass-box input { width: 100%; background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); border-radius: 8px; padding: 11px; text-align: center; color: #fff; margin-bottom: 12px; outline:none; font-size: 14px; letter-spacing: 2px; }
+    .pass-box .enter-btn { width: 100%; background: var(--neon-green); color: #000; border: none; padding: 11px; border-radius: 8px; font-weight: 700; cursor: pointer; }
+    #passError { color: var(--red); font-size: 11px; margin-top: 8px; display: none; }
+    
+    .admin-modal { background: #030a04; border: 1px solid rgba(46,204,113,0.2); border-radius: 14px; padding: 20px; width: 100%; max-width: 450px; color: #fff; margin: auto; }
+    .admin-modal h3 { font-size: 13.5px; color: var(--neon-green); margin-bottom: 12px; text-transform: uppercase; }
+    .admin-modal input, .admin-modal textarea { width: 100%; background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); border-radius: 8px; padding: 10px; color: #fff; margin-bottom: 10px; outline:none; font-family: inherit; font-size: 12px;}
+    .admin-section-divider { border-top: 1px dashed var(--glass-border); padding-top: 10px; margin-top: 6px; }
+    .admin-section-divider h4 { font-size: 11px; color: var(--gold); margin-bottom: 6px; }
+    
+    .save-btn { width: 100%; background: linear-gradient(45deg, var(--neon-green), var(--emerald)); color: #000; border: none; padding: 11px; border-radius: 8px; font-weight: 800; cursor: pointer; text-transform: uppercase; font-size: 12px; }
+    .cancel-btn { background: transparent; color: var(--text-muted); border: 1px solid var(--glass-border); padding: 9px; border-radius: 8px; cursor: pointer; width: 100%; margin-top: 6px; font-size:11.5px; }
+
+    .toast { position: fixed; bottom: 85px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--neon-green); color: #000; font-weight: 700; padding: 8px 20px; border-radius: 30px; font-size: 11.5px; z-index: 500; transition: transform 0.3s; pointer-events: none; }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    footer { text-align: center; padding: 20px; font-size: 11px; color: var(--text-muted); margin-bottom: 40px; }
     footer span { color: var(--neon-green); }
   </style>
 </head>
 <body>
 
 <div class="topbar">
-  <span>📍 PCP Coaching · Sikar, Rajasthan</span>
+  <span class="secret-trigger" onclick="handleSecretClick()">📍 PCP Coaching System Node · Sikar</span>
 </div>
 
 <header>
   <div class="logo-wrap">
-    <img src="logo.png" alt="PCP Logo" onerror="this.style.display='none'" />
+    <img src="logo.png" alt="PCP" onerror="this.style.display='none'" />
   </div>
   <div class="header-info">
-    <div class="tag">✦ AI Digital Ecosystem</div>
-    <h1>PCP <span>Premium Hub</span></h1>
-    <p>Sikar's Interactive NEET &amp; JEE Live Suite</p>
+    <h1>PCP <span>Private Suite</span></h1>
+    <p>In-App Lectures &amp; Realtime Evaluation Cloud</p>
   </div>
 </header>
 
 <div class="nav-strip" id="topNavStrip">
   <div class="nav-item active" onclick="switchTab('home')">🏠 Home</div>
+  <div class="nav-item" onclick="switchTab('notice')">📣 Notifications</div>
+  <div class="nav-item" onclick="switchTab('lectures')">📺 In-App Lectures</div>
   <div class="nav-item" onclick="switchTab('schedule')">📅 Schedule</div>
-  <div class="nav-item" onclick="switchTab('dpp')">📝 DPP Zone</div>
-  <div class="nav-item" onclick="switchTab('ai')">🤖 Gemini Bot</div>
+  <div class="nav-item" onclick="switchTab('papers')">📄 Mock Papers</div>
+  <div class="nav-item" onclick="switchTab('quiz')">🧠 Mini Quiz</div>
 </div>
 
 <div class="container">
+
   <div class="tab-section active" id="tab-home">
-    <div class="hero-rutba-card">
-      <div class="hero-welcome">Welcome Student Terminal</div>
-      <h2 class="hero-title">Elevate Your Preparation With Automated Matrix Architecture.</h2>
-      <p style="font-size:12.5px; color:var(--text-muted); line-height:1.6;">PCP Sikar ke distributed system par aapka swagat hai. Live timetable matrices aur structured study streams ka access yahan se hota hai.</p>
-      <div class="status-badge-grid">
-         <div class="status-node">
-            <h4>System Node</h4>
-            <p style="color:var(--neon-green);">Core Active ✓</p>
-         </div>
-         <div class="status-node">
-            <h4>Tutor Matrix</h4>
-            <p style="color:var(--mint);">Flash 1.5 Omni</p>
-         </div>
-      </div>
+    <div class="home-profile-card">
+       <div class="home-welcome">Student Access Terminal</div>
+       <h2 class="home-title">Welcome to PCP Dashboard</h2>
+       <p class="home-desc">Aapka student portal up-to-date hai. Naye private video lectures, daily schedules aur tests access karne ke liye upar diye gaye navigation options ka use karein.</p>
+       
+       <div class="status-grid">
+          <div class="status-node">
+             <h4>System Security</h4>
+             <p style="color:var(--neon-green);">In-App Safe ✓</p>
+          </div>
+          <div class="status-node">
+             <h4>Active Batch</h4>
+             <p style="color:var(--gold);">NEET / JEE Target</p>
+          </div>
+       </div>
     </div>
-    
-    <div class="sec-head"><div class="bar"></div><h2>Academic Track</h2></div>
-    <div class="glass-card">
-      <div class="card-head"><h3>🗓 Current Active Timetable</h3></div>
-      <div class="sch-row">
-        <div class="sch-icon">📚</div>
-        <div><div style="font-size:10px; color:var(--text-muted);">MON - SAT</div><div class="sch-text">Regular Classes &amp; Practice Slots</div></div>
-        <div class="sch-badge badge-green">Active</div>
-      </div>
-      <div class="sch-row">
-        <div class="sch-icon">🔁</div>
-        <div><div style="font-size:10px; color:var(--text-muted);">SUNDAY</div><div class="sch-text">🚨 BACKLOG DAY — Complete Pending Backlogs</div></div>
-        <div class="sch-badge badge-red">Backlog</div>
-      </div>
-    </div>
+  </div>
+
+  <div class="tab-section" id="tab-notice">
+     <div class="sec-head"><div class="bar"></div><h2>Important Notifications (मत्वपूर्ण सूचना)</h2></div>
+     <div class="notice-wrapper" id="noticeContainer">
+        </div>
+  </div>
+
+  <div class="tab-section" id="tab-lectures">
+    <div class="sec-head"><div class="bar"></div><h2>Private Video Lectures (In-App Player)</h2></div>
+    <div class="video-grid" id="lecturesContainer">
+       </div>
   </div>
 
   <div class="tab-section" id="tab-schedule">
-    <div class="sec-head"><div class="bar"></div><h2>Class Routine</h2></div>
+    <div class="sec-head"><div class="bar"></div><h2>Academic Time Matrix</h2></div>
     <div class="glass-card">
-       <div class="card-head"><h3>📅 Realtime Cluster Routine</h3></div>
+       <div class="card-head"><h3>📅 Live Routine System</h3></div>
        <div class="sch-row">
          <div class="sch-icon">📚</div>
-         <div class="sch-text">Regular Core Classes &amp; Practice Slots (Mon - Sat)</div>
+         <div><div style="font-size:10px; color:var(--text-muted);">MON - SAT</div><div class="sch-text" id="monSatDisplay">Regular Classes &amp; Practice Slots</div></div>
+         <div class="sch-badge badge-green">Active</div>
        </div>
        <div class="sch-row">
          <div class="sch-icon">🔁</div>
-         <div class="sch-text">🚨 BACKLOG DAY — Self Revision / No Regular Classes (Sunday)</div>
+         <div><div style="font-size:10px; color:var(--text-muted);">SUNDAY</div><div class="sch-text" id="sunDisplay">🚨 BACKLOG DAY — Complete Pending Backlogs</div></div>
+         <div class="sch-badge badge-red">Backlog</div>
        </div>
     </div>
   </div>
 
-  <div class="tab-section" id="tab-dpp">
-    <div class="sec-head"><div class="bar"></div><h2>Resource Library</h2></div>
+  <div class="tab-section" id="tab-papers">
+    <div class="sec-head"><div class="bar"></div><h2>Uploaded Papers &amp; Study Material</h2></div>
     <div class="glass-card">
-      <div class="card-head"><h3>📝 Daily Practice Papers (DPP)</h3></div>
-      <ul class="paper-list">
-        <li><a href="#">📄 Physics — Electrostatics DPP-1 <span class="dl-arrow">📥 Download</span></a></li>
-        <li><a href="#">📄 Chemistry — Chemical Bonding DPP <span class="dl-arrow">📥 Download</span></a></li>
-        <li><a href="#">📄 Biology — Cell Structure Notes <span class="dl-arrow">📥 Download</span></a></li>
-      </ul>
+      <div class="card-head"><h3>📥 Active Resources</h3></div>
+      <ul class="paper-list" id="papersContainer">
+         </ul>
     </div>
   </div>
 
-  <div class="tab-section" id="tab-ai">
-    <div class="sec-head"><div class="bar"></div><h2>AI Visual Doubt Solver</h2></div>
+  <div class="tab-section" id="tab-quiz">
+    <div class="sec-head"><div class="bar"></div><h2>Live Interactive Quiz Assessment</h2></div>
     <div class="glass-card">
-      <div class="chat-messages" id="chatMessages">
-        <div class="msg bot">
-          <div class="msg-avatar">🤖</div>
-          <div class="msg-bubble">Radhe Radhe! Main PCP AI Tutor hoon. Aap apne doubt pooch sakte hain.</div>
-        </div>
-      </div>
-      <div class="chat-input-container">
-         <div class="chat-input-row">
-           <input type="text" placeholder="Apna doubt likhein..." />
-           <button class="chat-send-btn">➤</button>
-         </div>
+      <div class="card-head"><h3>🧠 Active Mini-Mock Challenge</h3></div>
+      <div class="quiz-box-wrapper">
+         <div id="quizFormContainer">
+           </div>
+         <button class="quiz-submit-btn" onclick="evaluateQuiz()">Submit Assessment</button>
+         <div class="quiz-result-card" id="quizResultBlock"></div>
       </div>
     </div>
   </div>
+
 </div>
 
 <div class="bottom-premium-bar">
   <div class="bbar-item active" onclick="switchTab('home')"><span class="icon">🏠</span>Home</div>
-  <div class="bbar-item" onclick="switchTab('schedule')"><span class="icon">📅</span>Schedule</div>
-  <div class="bbar-item" onclick="switchTab('ai')"><span class="icon">🤖</span>AI Doubt</div>
-  <div class="bbar-item" onclick="switchTab('dpp')"><span class="icon">📝</span>DPPs</div>
+  <div class="bbar-item" onclick="switchTab('notice')"><span class="icon">📣</span>Suchna</div>
+  <div class="bbar-item" onclick="switchTab('lectures')"><span class="icon">📺</span>Lectures</div>
+  <div class="bbar-item" onclick="switchTab('quiz')"><span class="icon">🧠</span>Quiz</div>
 </div>
 
-<footer>© 2026 <span>PCP Digital Studio</span> · Sikar Ecosystem</footer>
+<div class="overlay" id="passOverlay">
+  <div class="pass-box">
+    <div style="font-size:24px; margin-bottom:6px;">🔐</div>
+    <h3 style="font-size:12.5px; margin-bottom:6px; color:#fff;">System Gateway</h3>
+    <input type="password" id="passInput" placeholder="••••" onkeydown="if(event.key==='Enter')checkPass()"/>
+    <button class="enter-btn" onclick="checkPass()">Unlock Deck</button>
+    <div id="passError">Refused!</div>
+  </div>
+</div>
+
+<div class="overlay" id="adminOverlay">
+  <div class="admin-modal">
+    <h3>⚙ Cloud Production Control Deck</h3>
+    
+    <label style="font-size:10px; color:var(--text-muted);">Mon-Sat Schedule Matrix</label>
+    <input type="text" id="inp_monsat" />
+
+    <label style="font-size:10px; color:var(--text-muted);">Sunday Schedule Matrix</label>
+    <input type="text" id="inp_sunday" />
+
+    <div class="admin-section-divider">
+      <h4>📣 Broadcast New Notice (Suchna Page Card)</h4>
+      <textarea id="inp_notice" rows="2" placeholder="Write core notice text content..."></textarea>
+    </div>
+
+    <div class="admin-section-divider">
+      <h4>📺 Upload Private In-App Video Lecture (Direct Link)</h4>
+      <input type="text" id="inp_v_title" placeholder="Lecture Topic Name" />
+      <input type="text" id="inp_v_url" placeholder="Direct Video URL (e.g. https://site.com/lecture.mp4)" />
+    </div>
+
+    <div class="admin-section-divider">
+      <h4>📄 Upload New Exam Paper / DPP PDF</h4>
+      <input type="text" id="inp_p_title" placeholder="Paper/DPP Name description" />
+      <input type="text" id="inp_p_url" placeholder="PDF Document URL" />
+    </div>
+
+    <div class="admin-section-divider">
+      <h4>🧠 Live Quiz Setup Node</h4>
+      <input type="text" id="inp_q_text" placeholder="Question Core Text" />
+      <input type="text" id="inp_q_a" placeholder="Option A" />
+      <input type="text" id="inp_q_b" placeholder="Option B" />
+      <input type="text" id="inp_q_c" placeholder="Option C" />
+      <input type="text" id="inp_q_d" placeholder="Option D" />
+      <input type="text" id="inp_q_ans" placeholder="Correct Answer Token (A, B, C, or D)" />
+    </div>
+
+    <button class="save-btn" onclick="saveData()">💾 Commit Changes Live</button>
+    <button class="cancel-btn" onclick="document.getElementById('adminOverlay').classList.remove('active')">Abort Sync</button>
+  </div>
+</div>
+
+<div class="toast" id="toast">Data synced securely!</div>
+<footer>© 2026 <span>PCP Digital Studio</span> · Sikar Hub</footer>
 
 <script>
+  // ══ FIREBASE LIVE CORE INITIALIZATION ══
+  const firebaseConfig = {
+    apiKey: "AIzaSyBevXeQ1qL4eC4lfASu4zA2Hj7dq94Pwt0",
+    authDomain: "pcp-portal-57cbb.firebaseapp.com",
+    databaseURL: "https://pcp-portal-57cbb-default-rtdb.firebaseio.com",
+    projectId: "pcp-portal-57cbb",
+    storageBucket: "pcp-portal-57cbb.firebasestorage.app",
+    messagingSenderId: "445270969100",
+    appId: "1:445270969100:web:905c23f3d3b433a74a9729"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+  const PASS = "PCP@2026";
+  let globalQuizAnswer = "A";
+
+  // Realtime Live Data Sync Strategy
+  db.ref("portal").on("value", (snap) => {
+    const data = snap.val(); if (!data) return;
+    
+    // Updates the Schedule Fields
+    document.getElementById("monSatDisplay").textContent = data.monSat || "Regular Classes & Practice Slots";
+    document.getElementById("sunDisplay").textContent = data.sunday || "🚨 BACKLOG DAY — Complete Pending Backlogs";
+    
+    // Dedicated Notice Stream Translator
+    const noticeContainer = document.getElementById("noticeContainer");
+    noticeContainer.innerHTML = "";
+    if(data.notices) {
+       Object.values(data.notices).reverse().forEach(n => {
+          noticeContainer.innerHTML += `
+             <div class="notice-card">
+                <div class="notice-time">${new Date(n.time).toLocaleString('en-IN', { hour12: true })}</div>
+                <div class="notice-body">${n.text}</div>
+             </div>`;
+       });
+    } else {
+       noticeContainer.innerHTML = `<div style="text-align:center;color:var(--text-muted);padding:20px;font-size:12px;">No active notices or announcements.</div>`;
+    }
+
+    // Direct In-App Custom Video Stream System
+    const vContainer = document.getElementById("lecturesContainer");
+    vContainer.innerHTML = "";
+    if(data.lectures) {
+       Object.values(data.lectures).forEach(v => {
+          vContainer.innerHTML += `
+            <div class="video-card">
+               <div class="video-wrapper-box">
+                  <video controls controlsList="nodownload" preload="metadata">
+                     <source src="${v.url}" type="video/mp4">
+                     Your browser does not support high-tier in-app video streams.
+                  </video>
+               </div>
+               <div class="video-info">
+                  <div class="video-title">${v.title}</div>
+               </div>
+            </div>`;
+       });
+    } else {
+       vContainer.innerHTML = `<div style="text-align:center;color:var(--text-muted);padding:20px;font-size:12px;">No custom private lectures uploaded yet.</div>`;
+    }
+
+    // Papers Engine Renderer
+    const pContainer = document.getElementById("papersContainer");
+    pContainer.innerHTML = "";
+    if(data.papers) {
+       Object.values(data.papers).forEach(p => {
+          pContainer.innerHTML += `<li><a href="${p.url}" target="_blank">📄 ${p.title} <span class="dl-arrow">📥 View Paper</span></a></li>`;
+       });
+    } else {
+       pContainer.innerHTML = `<div style="text-align:center;color:var(--text-muted);padding:20px;font-size:12px;">No mock evaluation papers uploaded.</div>`;
+    }
+
+    // Live Evaluation Test Quiz Node Engine
+    const quizWrapper = document.getElementById("quizFormContainer");
+    if(data.quiz) {
+       globalQuizAnswer = data.quiz.ans || "A";
+       quizWrapper.innerHTML = `
+         <div class="quiz-question-box">
+           <div class="q-text">Q) ${data.quiz.question || "Question Parameters"}</div>
+           <label class="option-label"><input type="radio" name="live_q" value="A"> A) ${data.quiz.a || "Option A"}</label>
+           <label class="option-label"><input type="radio" name="live_q" value="B"> B) ${data.quiz.b || "Option B"}</label>
+           <label class="option-label"><input type="radio" name="live_q" value="C"> C) ${data.quiz.c || "Option C"}</label>
+           <label class="option-label"><input type="radio" name="live_q" value="D"> D) ${data.quiz.d || "Option D"}</label>
+         </div>`;
+    } else {
+       quizWrapper.innerHTML = `<div style="text-align:center;color:var(--text-muted);padding:20px;font-size:12px;">No live micro challenge active.</div>`;
+    }
+  });
+
+  // Client Side Instant Mock Evaluation Engine
+  function evaluateQuiz() {
+     const selected = document.querySelector('input[name="live_q"]:checked');
+     const resBlock = document.getElementById("quizResultBlock");
+     if(!selected) { alert("Please pick an option parameter first!"); return; }
+     
+     resBlock.style.display = "block";
+     if(selected.value === globalQuizAnswer.toUpperCase().trim()) {
+        resBlock.style.background = "rgba(46,204,113,0.1)";
+        resBlock.style.borderColor = "var(--neon-green)";
+        resBlock.style.color = "var(--neon-green)";
+        resBlock.innerHTML = `<strong>✓ Correct Answer Selected!</strong><p style="font-size:11px;margin-top:2px;color:#fff;">Excellent command over concept matrix architecture.</p>`;
+     } else {
+        resBlock.style.background = "rgba(231,76,60,0.1)";
+        resBlock.style.borderColor = "var(--red)";
+        resBlock.style.color = "var(--red)";
+        resBlock.innerHTML = `<strong>✕ Incorrect Selection!</strong><p style="font-size:11px;margin-top:2px;color:#fff;">Analyze the question database state and retry.</p>`;
+     }
+  }
+
+  // SECRET CLICK COUNTER HOOK
+  let secretClicks = 0;
+  function handleSecretClick() {
+    secretClicks++;
+    if(secretClicks === 3) {
+      secretClicks = 0;
+      document.getElementById("passInput").value = "";
+      document.getElementById("passError").style.display = "none";
+      document.getElementById("passOverlay").classList.add("active");
+    }
+    setTimeout(() => { secretClicks = 0; }, 2000);
+  }
+
+  function checkPass() {
+    if(document.getElementById("passInput").value === PASS) {
+      document.getElementById("passOverlay").classList.remove("active");
+      db.ref("portal").once("value",(snap)=>{
+        const v = snap.val()||{};
+        document.getElementById("inp_monsat").value = v.monSat||"";
+        document.getElementById("inp_sunday").value = v.sunday||"";
+        
+        document.getElementById("inp_notice").value = "";
+        document.getElementById("inp_v_title").value = "";
+        document.getElementById("inp_v_url").value = "";
+        document.getElementById("inp_p_title").value = "";
+        document.getElementById("inp_p_url").value = "";
+
+        if(v.quiz) {
+          document.getElementById("inp_q_text").value = v.quiz.question||"";
+          document.getElementById("inp_q_a").value = v.quiz.a||"";
+          document.getElementById("inp_q_b").value = v.quiz.b||"";
+          document.getElementById("inp_q_c").value = v.quiz.c||"";
+          document.getElementById("inp_q_d").value = v.quiz.d||"";
+          document.getElementById("inp_q_ans").value = v.quiz.ans||"";
+        }
+      });
+      document.getElementById("adminOverlay").classList.add("active");
+    } else {
+      document.getElementById("passError").style.display="block";
+    }
+  }
+
+  // DATABASE COMMIT SYNC STRATEGY
+  function saveData() {
+     const updates = {
+        monSat: document.getElementById("inp_monsat").value,
+        sunday: document.getElementById("inp_sunday").value
+     };
+
+     // Push Independent Notice Card
+     const noticeTxt = document.getElementById("inp_notice").value.trim();
+     if(noticeTxt) {
+        db.ref("portal/notices").push({ text: noticeTxt, time: Date.now() });
+     }
+
+     // Push In-App Private Video File URL
+     const vTitle = document.getElementById("inp_v_title").value.trim();
+     const vUrl = document.getElementById("inp_v_url").value.trim();
+     if(vTitle && vUrl) {
+        db.ref("portal/lectures").push({ title: vTitle, url: vUrl });
+     }
+
+     // Push New Paper Document
+     const pTitle = document.getElementById("inp_p_title").value.trim();
+     const pUrl = document.getElementById("inp_p_url").value.trim();
+     if(pTitle && pUrl) {
+        db.ref("portal/papers").push({ title: pTitle, url: pUrl });
+     }
+
+     // Update Static Mock Quiz Architecture Node
+     updates.quiz = {
+        question: document.getElementById("inp_q_text").value,
+        a: document.getElementById("inp_q_a").value,
+        b: document.getElementById("inp_q_b").value,
+        c: document.getElementById("inp_q_c").value,
+        d: document.getElementById("inp_q_d").value,
+        ans: document.getElementById("inp_q_ans").value
+     };
+
+     db.ref("portal").update(updates).then(()=>{
+        document.getElementById("adminOverlay").classList.remove("active");
+        const t = document.getElementById("toast"); t.classList.add("show");
+        document.getElementById("quizResultBlock").style.display = "none";
+        setTimeout(()=>t.classList.remove("show"),2500);
+     });
+  }
+
+  // TABS NAVIGATION ENGINE ROUTER
   function switchTab(name) {
     document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
     document.querySelectorAll('.nav-strip .nav-item').forEach(n => n.classList.remove('active'));
@@ -277,9 +532,11 @@
     const bbarItems = document.querySelectorAll('.bottom-premium-bar .bbar-item');
     
     if(name === 'home') { navItems[0].classList.add('active'); bbarItems[0].classList.add('active'); }
-    if(name === 'schedule') { navItems[1].classList.add('active'); bbarItems[1].classList.add('active'); }
-    if(name === 'dpp') { navItems[2].classList.add('active'); bbarItems[3].classList.add('active'); }
-    if(name === 'ai') { navItems[3].classList.add('active'); bbarItems[2].classList.add('active'); }
+    if(name === 'notice') { navItems[1].classList.add('active'); bbarItems[1].classList.add('active'); }
+    if(name === 'lectures') { navItems[2].classList.add('active'); bbarItems[2].classList.add('active'); }
+    if(name === 'schedule') { navItems[3].classList.add('active'); }
+    if(name === 'papers') { navItems[4].classList.add('active'); }
+    if(name === 'quiz') { navItems[5].classList.add('active'); bbarItems[3].classList.add('active'); }
   }
 </script>
 </body>
