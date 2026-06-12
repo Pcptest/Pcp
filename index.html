@@ -3,33 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="vXqo5yNEdIQhF9WjOouZ51JBLEvItwu0CRqMoTfcXB4" />
-  <meta name="description" content="PCP Digital Hub Sikar - NEET/JEE Study Material, Official Schedules, Daily DPP and Notes." />
-  <meta name="theme-color" content="#060c18" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <title>PCP Premium Digital Studio</title>
+  <meta name="description" content="Youtub Premium Hub - Futuristic Web Engine" />
+  <meta name="theme-color" content="#020617" />
+  <title>Youtub Premium Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg-dark: #050b14;
-      --glass-bg: rgba(255, 255, 255, 0.04);
+      --bg-dark: #020617;
+      --glass-bg: rgba(255, 255, 255, 0.03);
       --glass-border: rgba(255, 255, 255, 0.08);
       --gold: #ffb300;
       --neon-blue: #00f2fe;
       --neon-purple: #4facfe;
       --neon-pink: #ff007f;
       --text-main: #ffffff;
-      --text-muted: #8fa0bc;
-      --red: #ff3333;
-      --green: #2ecc71;
+      --text-muted: #94a3b8;
     }
 
     body {
@@ -42,507 +34,214 @@
       position: relative;
     }
 
-    /* 🌊 PREMIUM LIQUID BACKGROUND BLUR ORBS */
+    /* 🌊 PREMIUM HIGH-GLOW LIQUID BACKGROUND BLUR ORBS */
     body::before, body::after {
-      content: ''; position: fixed; width: 320px; height: 320px; border-radius: 50%; z-index: -1; filter: blur(120px); opacity: 0.35; pointer-events: none;
+      content: ''; position: fixed; width: 350px; height: 350px; border-radius: 50%; z-index: -1; filter: blur(130px); opacity: 0.4; pointer-events: none;
     }
-    body::before { top: -60px; left: -60px; background: linear-gradient(45deg, var(--neon-blue), #4facfe); animation: liquid1 14s infinite alternate; }
-    body::after { bottom: 40px; right: -60px; background: linear-gradient(45deg, #7f00ff, var(--neon-pink)); animation: liquid2 14s infinite alternate; }
-    @keyframes liquid1 { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(40px, 50px) scale(1.15); } }
-    @keyframes liquid2 { 0% { transform: translate(0,0) scale(1.15); } 100% { transform: translate(-40px, -40px) scale(0.9); } }
+    body::before { top: -80px; left: -80px; background: linear-gradient(45deg, var(--neon-blue), #4facfe); animation: liquidMovement1 15s infinite alternate ease-in-out; }
+    body::after { bottom: -20px; right: -80px; background: linear-gradient(45deg, #7f00ff, var(--neon-pink)); animation: liquidMovement2 15s infinite alternate ease-in-out; }
+    
+    @keyframes liquidMovement1 { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(60px, 80px) scale(1.2); } }
+    @keyframes liquidMovement2 { 0% { transform: translate(0,0) scale(1.2); } 100% { transform: translate(-60px, -60px) scale(0.85); } }
 
-    /* ══ TOP BAR (SECRET TRIPLE CLICK ACCESS ZONE) ══ */
-    .topbar {
-      background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(5px);
-      color: var(--text-muted); font-size: 11px; padding: 9px 20px; text-align: center;
-      border-bottom: 1px solid var(--glass-border); font-weight: 500; letter-spacing: 0.5px;
-    }
-    .secret-trigger { cursor: default; user-select: none; transition: color 0.2s; }
-    .secret-trigger:active { color: var(--neon-blue); }
-
-    /* ══ GLASS HEADER ══ */
+    /* ══ GLASSMORPHISM HEADER ══ */
     header {
-      background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+      background: rgba(255, 255, 255, 0.01); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--glass-border); padding: 22px 20px;
-      display: flex; align-items: center; gap: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      display: flex; align-items: center; justify-content: space-between;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
     }
-    .logo-wrap img { width: 68px; height: 68px; border-radius: 50%; border: 2px solid var(--neon-blue); box-shadow: 0 0 15px rgba(0,242,254,0.25); background: #fff; padding: 2px; }
-    .header-info .tag { display: inline-block; background: rgba(0, 242, 254, 0.08); border: 1px solid rgba(0,242,254,0.3); color: var(--neon-blue); font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 20px; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px; }
-    .header-info h1 { font-size: 22px; font-weight: 800; }
-    .header-info h1 span { background: linear-gradient(45deg, var(--neon-blue), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .header-info p { font-size: 11.5px; color: var(--text-muted); }
+    .logo-area h1 { font-size: 24px; font-weight: 800; letter-spacing: 0.5px; }
+    .logo-area h1 span { background: linear-gradient(45deg, var(--neon-blue), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    
+    /* 🎯 HIDDEN DEVELOPER BUTTON */
+    .dev-btn {
+      background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.15); padding: 5px 10px; border-radius: 6px;
+      font-size: 10px; cursor: pointer; transition: all 0.3s;
+    }
+    .dev-btn:hover { color: var(--neon-blue); border-color: rgba(0,242,254,0.2); background: rgba(0,242,254,0.02); }
 
-    /* ══ SCROLLABLE TOP NAVIGATION STRIP ══ */
-    .nav-strip { background: rgba(0,0,0,0.15); display: flex; overflow-x: auto; border-bottom: 1px solid var(--glass-border); }
-    .nav-strip::-webkit-scrollbar { display: none; }
-    .nav-item { padding: 14px 22px; color: var(--text-muted); font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.3s; position: relative; }
-    .nav-item.active { color: var(--neon-blue); }
-    .nav-item.active::after { content: ''; position: absolute; bottom: 0; left: 22px; right: 22px; height: 2px; background: var(--neon-blue); box-shadow: 0 0 8px var(--neon-blue); border-radius: 2px; }
-
-    /* ══ CONTAINER & LAYOUTS ══ */
-    .container { max-width: 800px; margin: 0 auto; padding: 22px 14px; }
+    .container { max-width: 800px; margin: 0 auto; padding: 25px 14px; }
     .tab-section { display: none; }
-    .tab-section.active { display: block; animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-    @keyframes slideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .tab-section.active { display: block; animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-    .sec-head { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; margin-top: 5px; }
-    .sec-head .bar { width: 4px; height: 18px; background: var(--neon-blue); box-shadow: 0 0 8px var(--neon-blue); border-radius: 2px; }
-    .sec-head h2 { font-size: 15px; font-weight: 700; letter-spacing: 0.3px; }
-
-    /* ══ 🔥 HOME PAGE HERO RUTBA DESIGN ══ */
+    /* 🔥 HOME PAGE SUPREME RUTBA CARD */
     .hero-rutba-card {
-      background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 22px;
-      margin-bottom: 22px; position: relative; overflow: hidden;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+      background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.09); border-radius: 24px; padding: 30px;
+      margin-bottom: 25px; position: relative; overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
     }
     .hero-rutba-card::before {
-      content: ''; position: absolute; top: -50%; right: -50%; width: 200px; height: 200px;
-      background: var(--neon-blue); filter: blur(90px); opacity: 0.15; pointer-events: none;
+      content: ''; position: absolute; top: -40%; right: -40%; width: 250px; height: 250px;
+      background: var(--neon-blue); filter: blur(100px); opacity: 0.2; pointer-events: none;
     }
-    .hero-welcome { font-size: 12px; color: var(--gold); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
-    .hero-title { font-size: 24px; font-weight: 800; line-height: 1.3; margin-bottom: 12px; background: linear-gradient(90deg, #fff, #b0c7ee); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    
-    .status-badge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
+    .hero-welcome { font-size: 11px; color: var(--gold); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; text-shadow: 0 0 10px rgba(255,179,0,0.2); }
+    .hero-title { font-size: 28px; font-weight: 800; line-height: 1.3; margin-bottom: 14px; background: linear-gradient(90deg, #ffffff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.7; }
+
+    .status-badge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
     .status-node {
-      background: rgba(0, 0, 0, 0.2); border: 1px solid var(--glass-border); padding: 12px 14px; border-radius: 12px;
-      transition: border-color 0.3s;
+      background: rgba(0, 0, 0, 0.3); border: 1px solid var(--glass-border); padding: 14px 16px; border-radius: 14px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05); transition: border-color 0.3s;
     }
-    .status-node:hover { border-color: rgba(0,242,254,0.25); }
-    .status-node h4 { font-size: 10.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
-    .status-node p { font-size: 13.5px; font-weight: 700; margin-top: 3px; color: #fff; }
+    .status-node:hover { border-color: rgba(0,242,254,0.3); }
+    .status-node h4 { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+    .status-node p { font-size: 14px; font-weight: 700; margin-top: 4px; color: #fff; }
 
-    /* GLASSMORPHISM GENERAL CARD */
+    /* ══ 🤖 ULTRA GLOW GLASS AI ENGINE ══ */
     .glass-card {
-      background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      border: 1px solid var(--glass-border); border-radius: 16px; overflow: hidden; margin-bottom: 22px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border); border-radius: 20px; overflow: hidden; margin-bottom: 22px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05);
     }
-    .card-head { background: rgba(255,255,255,0.01); padding: 14px 18px; border-bottom: 1px solid var(--glass-border); display: flex; align-items: center; gap: 10px; }
-    .card-head h3 { font-size: 14px; font-weight: 700; color: #fff; }
+    .card-head { background: rgba(255,255,255,0.01); padding: 16px 20px; border-bottom: 1px solid var(--glass-border); display: flex; align-items: center; gap: 10px; }
+    .card-head h3 { font-size: 15px; font-weight: 700; color: #fff; letter-spacing: 0.3px; }
+    .card-head .ai-tag { margin-left: auto; font-size: 10px; background: rgba(0,242,254,0.08); border: 1px solid rgba(0,242,254,0.3); padding: 3px 9px; border-radius: 12px; color: var(--neon-blue); font-weight: 700; letter-spacing: 0.5px; }
 
-    /* SCHEDULE DATA ROWS */
-    .sch-row { display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-bottom: 1px solid var(--glass-border); }
-    .sch-row:last-child { border-bottom: none; }
-    .sch-icon { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); }
-    .sch-text { font-size: 13px; font-weight: 600; line-height: 1.5; }
-    .sch-badge { margin-left: auto; padding: 3px 10px; border-radius: 20px; font-size: 10px; font-weight: 700; text-transform: uppercase; }
-    .badge-green { background: rgba(46,204,113,0.12); color: var(--green); border: 1px solid var(--green); }
-    .badge-red { background: rgba(255,77,77,0.12); color: var(--red); border: 1px solid var(--red); box-shadow: 0 0 6px rgba(255,77,77,0.15); }
-
-    /* BROADCAST NOTICE BANNER */
-    .notice-banner {
-      background: linear-gradient(135deg, rgba(255,51,53,0.18), rgba(150,10,10,0.32));
-      backdrop-filter: blur(10px); border: 1px solid rgba(255,51,53,0.25); border-radius: 14px;
-      padding: 14px 16px; margin-bottom: 22px; display: none; gap: 12px; box-shadow: 0 4px 20px rgba(255,0,0,0.08);
-    }
-    .notice-banner.show { display: flex; }
-    .nb-text { font-size: 13px; font-weight: 600; color: #fff; white-space: pre-wrap; line-height: 1.5; }
-
-    /* RESOURCE MATRIX FILES */
-    .paper-list { list-style: none; padding: 12px; display: flex; flex-direction: column; gap: 8px; }
-    .paper-list li a {
-      display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.01); border: 1px solid var(--glass-border); border-radius: 10px; padding: 12px 14px; text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 13px; transition: all 0.2s;
-    }
-    .paper-list li a:hover { background: rgba(0,242,254,0.04); border-color: var(--neon-blue); }
-    .paper-list li a .dl-arrow { margin-left: auto; background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple)); color: #000; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; }
-
-    /* ══ 🤖 PREMIUM CORE AI SOLUTIONS ENGINE ══ */
-    .subject-filters { display: flex; gap: 6px; padding: 12px 14px 6px; background: rgba(0,0,0,0.1); border-bottom: 1px solid var(--glass-border); overflow-x: auto; }
-    .subject-filters::-webkit-scrollbar { display: none; }
-    .sub-pill { font-size: 11px; padding: 5px 12px; border-radius: 20px; background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); color: var(--text-muted); cursor: pointer; font-weight: 600; white-space: nowrap; }
-    .sub-pill.active { background: var(--neon-blue); color: #000; border-color: var(--neon-blue); font-weight: 700; box-shadow: 0 0 8px rgba(0,242,254,0.3); }
-
-    .ai-quick-btns { padding: 10px 14px; display: flex; gap: 6px; flex-wrap: wrap; }
-    .quick-btn { background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); color: var(--neon-purple); font-size: 11px; font-weight: 600; padding: 5px 12px; border-radius: 20px; cursor: pointer; transition: all 0.2s; }
-    .quick-btn:hover { background: var(--neon-purple); color: #000; }
-
-    .chat-messages { height: 350px; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 12px; background: rgba(0,0,0,0.12); }
+    .chat-messages { height: 350px; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 14px; background: rgba(0,0,0,0.2); }
     .chat-messages::-webkit-scrollbar { width: 3px; }
     .chat-messages::-webkit-scrollbar-thumb { background: var(--glass-border); }
     
-    .msg { display: flex; gap: 10px; max-width: 85%; }
+    .msg { display: flex; gap: 12px; max-width: 85%; }
     .msg.user { align-self: flex-end; flex-direction: row-reverse; }
     .msg.bot { align-self: flex-start; }
-    .msg-avatar { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; background: rgba(255,255,255,0.06); border: 1px solid var(--glass-border); }
-    .msg.bot .msg-avatar { border-color: var(--neon-purple); box-shadow: 0 0 5px rgba(79,172,254,0.2); }
-    .msg.user .msg-avatar { background: var(--gold); border-color: var(--gold); color: #000; font-weight: bold; }
+    .msg-avatar { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); }
+    .msg.bot .msg-avatar { border-color: var(--neon-blue); box-shadow: 0 0 10px rgba(0,242,254,0.2); color: var(--neon-blue); }
+    .msg.user .msg-avatar { background: var(--gold); border-color: var(--gold); color: #000; font-weight: bold; box-shadow: 0 0 10px rgba(255,179,0,0.2); }
     
-    .msg-bubble { padding: 10px 14px; border-radius: 14px; font-size: 12.5px; line-height: 1.6; white-space: pre-wrap; word-break: break-word; }
-    .msg.bot .msg-bubble { background: rgba(255,255,255,0.03); color: #e1e7ee; border: 1px solid var(--glass-border); border-bottom-left-radius: 3px; }
-    .msg.user .msg-bubble { background: linear-gradient(135deg, #0e1e38, #050b14); border: 1px solid rgba(0,242,254,0.12); color: #fff; border-bottom-right-radius: 3px; }
+    .msg-bubble { padding: 12px 16px; border-radius: 16px; font-size: 13px; line-height: 1.6; white-space: pre-wrap; word-break: break-word; }
+    .msg.bot .msg-bubble { background: rgba(255,255,255,0.02); color: #e2e8f0; border: 1px solid var(--glass-border); border-bottom-left-radius: 3px; }
+    .msg.user .msg-bubble { background: linear-gradient(135deg, #0f172a, #020617); border: 1px solid rgba(0,242,254,0.15); color: #fff; border-bottom-right-radius: 3px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
     
-    .chat-img-preview { max-width: 100%; max-height: 160px; border-radius: 8px; margin-top: 6px; display: block; border: 1px solid rgba(255,255,255,0.1); }
+    .chat-img-preview { max-width: 100%; max-height: 180px; border-radius: 10px; margin-top: 8px; display: block; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
 
-    /* IMAGE STAGING STRIP */
-    .selected-image-preview-bar { display: none; align-items: center; gap: 10px; padding: 8px 14px; background: rgba(255,179,0,0.06); border-top: 1px solid rgba(255,179,0,0.15); }
-    .selected-image-preview-bar img { width: 38px; height: 38px; object-fit: cover; border-radius: 6px; border: 1px solid var(--gold); }
-    .remove-selected-img { background: var(--red); color: #fff; border: none; border-radius: 50%; width: 18px; height: 18px; font-size: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    /* STAGING PIPELINE STRIP */
+    .selected-image-preview-bar { display: none; align-items: center; gap: 12px; padding: 10px 16px; background: rgba(255,179,0,0.04); border-top: 1px solid rgba(255,179,0,0.15); border-bottom: 1px solid rgba(255,179,0,0.15); }
+    .selected-image-preview-bar img { width: 42px; height: 42px; object-fit: cover; border-radius: 8px; border: 1px solid var(--gold); box-shadow: 0 0 8px rgba(255,179,0,0.2); }
+    .remove-selected-img { background: #ff3333; color: #fff; border: none; border-radius: 50%; width: 20px; height: 20px; font-size: 11px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: bold; }
 
-    /* CHAT CORE INPUT PANEL */
-    .chat-input-container { background: rgba(0,0,0,0.15); border-top: 1px solid var(--glass-border); }
-    .chat-input-row { display: flex; gap: 8px; padding: 10px 14px; align-items: center; }
-    .clip-btn { background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); color: #fff; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; font-size: 15px; display: flex; align-items: center; justify-content: center; position: relative; }
+    /* CHAT FOOT INPUT */
+    .chat-input-container { background: rgba(0,0,0,0.25); border-top: 1px solid var(--glass-border); }
+    .chat-input-row { display: flex; gap: 10px; padding: 12px 16px; align-items: center; }
+    .clip-btn { background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); color: #fff; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; position: relative; transition: all 0.2s; }
+    .clip-btn:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
     .clip-btn input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
     
-    .chat-input-row input[type="text"] { flex: 1; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); border-radius: 20px; padding: 9px 16px; font-size: 12.5px; color: #fff; outline: none; font-family: inherit; }
-    .chat-input-row input[type="text"]:focus { border-color: var(--neon-blue); }
+    .chat-input-row input[type="text"] { flex: 1; background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); border-radius: 24px; padding: 11px 18px; font-size: 13px; color: #fff; outline: none; transition: border-color 0.3s; font-family: inherit; }
+    .chat-input-row input[type="text"]:focus { border-color: var(--neon-blue); box-shadow: 0 0 10px rgba(0,242,254,0.1); }
     
-    .chat-send-btn { background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple)); color: #000; border: none; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; font-weight: bold; }
-    .chat-send-btn:disabled { opacity: 0.2; }
+    .chat-send-btn { background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple)); color: #000; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; font-weight: bold; transition: transform 0.2s; box-shadow: 0 0 10px rgba(0,242,254,0.2); }
+    .chat-send-btn:active { transform: scale(0.92); }
 
-    .typing-indicator { display: flex; gap: 4px; align-items: center; padding: 4px 0; }
-    .typing-indicator span { width: 6px; height: 6px; border-radius: 50%; background: var(--text-muted); animation: bounce 1.2s infinite; }
-    .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
-    .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
-    @keyframes bounce { 0%,60%,100% { transform: translateY(0); } 30% { transform: translateY(-6px); } }
-
-    /* ══ PRESET FIXED APPLICATION APP-BAR ══ */
+    /* ══ PRESET FIXED BOTTOM BAR NAVBAR ══ */
     .bottom-premium-bar {
       position: fixed; bottom: 0; left: 0; right: 0;
-      background: rgba(5, 11, 20, 0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      display: flex; justify-content: space-around; padding: 8px 0 12px;
-      border-top: 1px solid var(--glass-border); z-index: 200; box-shadow: 0 -10px 30px rgba(0,0,0,0.4);
+      background: rgba(2, 6, 23, 0.4); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+      display: flex; justify-content: space-around; padding: 12px 0 14px;
+      border-top: 1px solid var(--glass-border); z-index: 200; box-shadow: 0 -15px 35px rgba(0,0,0,0.5);
     }
-    .bbar-item { text-align: center; color: var(--text-muted); font-size: 10px; font-weight: 500; cursor: pointer; flex: 1; }
-    .bbar-item .icon { font-size: 19px; margin-bottom: 2px; display: block; }
-    .bbar-item:hover, .bbar-item.active { color: var(--neon-blue); text-shadow: 0 0 5px rgba(0,242,254,0.3); }
+    .bbar-item { text-align: center; color: var(--text-muted); font-size: 11px; font-weight: 500; cursor: pointer; flex: 1; transition: all 0.3s; }
+    .bbar-item.active { color: var(--neon-blue); text-shadow: 0 0 8px rgba(0,242,254,0.4); }
+    .bbar-item span { display: block; font-size: 20px; margin-bottom: 3px; transition: transform 0.3s; }
+    .bbar-item.active span { transform: translateY(-2px); }
 
-    /* CRYPTO GATEWAYS & SETTINGS DECK OVERLAYS */
-    .overlay { display: none; position: fixed; inset: 0; background: rgba(2, 4, 8, 0.93); backdrop-filter: blur(8px); z-index: 300; align-items: center; justify-content: center; padding: 16px; }
-    .overlay.active { display: flex; }
-    .pass-box { background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); border-radius: 16px; padding: 25px; width: 100%; max-width: 310px; text-align: center; }
-    .pass-box input { width: 100%; background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); border-radius: 8px; padding: 11px; text-align: center; color: #fff; margin-bottom: 12px; outline:none; letter-spacing: 3px; }
-    .pass-box .enter-btn { width: 100%; background: var(--neon-blue); color: #000; border: none; padding: 11px; border-radius: 8px; font-weight: 700; cursor: pointer; }
-    #passError { color: var(--red); font-size: 11px; margin-top: 8px; display: none; }
-    
-    .admin-modal { background: #080f1a; border: 1px solid rgba(0,242,254,0.2); border-radius: 16px; padding: 22px; width: 100%; max-width: 420px; color: #fff; }
-    .admin-modal input, .admin-modal textarea { width: 100%; background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); border-radius: 8px; padding: 10px; color: #fff; margin-bottom: 12px; outline:none; font-family: inherit; font-size: 12px;}
-    .save-btn { width: 100%; background: linear-gradient(45deg, var(--neon-blue), #4facfe); color: #000; border: none; padding: 11px; border-radius: 8px; font-weight: 800; cursor: pointer; }
-    .cancel-btn { background: transparent; color: var(--text-muted); border: 1px solid var(--glass-border); padding: 9px; border-radius: 8px; cursor: pointer; width: 100%; margin-top: 6px; font-size:12px; }
-
-    .toast { position: fixed; bottom: 85px; left: 50%; transform: translateX(-50%) translateY(80px); background: #00f2fe; color: #000; font-weight: 700; padding: 8px 20px; border-radius: 30px; font-size: 12px; z-index: 500; transition: transform 0.3s; pointer-events: none; }
-    .toast.show { transform: translateX(-50%) translateY(0); box-shadow: 0 0 10px rgba(0,242,254,0.3); }
-    footer { text-align: center; padding: 20px; font-size: 11px; color: var(--text-muted); margin-bottom: 45px; }
-    footer span { color: var(--neon-blue); }
-
-    @media (max-width: 600px) {
-      header { padding: 16px 12px; }
-      header h1 { font-size: 19px; }
-      .chat-messages { height: 310px; }
-      .hero-title { font-size: 20px; }
-    }
+    footer { text-align: center; padding: 25px; font-size: 11px; color: var(--text-muted); margin-bottom: 50px; letter-spacing: 0.5px; }
+    footer span { color: var(--neon-blue); font-weight: 600; }
   </style>
 </head>
 <body>
 
-<div class="topbar">
-  <span class="secret-trigger" onclick="handleSecretClick()">📍 PCP Coaching · Sikar, Rajasthan</span>
-</div>
-
 <header>
-  <div class="logo-wrap">
-    <img src="logo.png" alt="PCP Logo" onerror="this.style.display='none'" />
+  <div class="logo-area">
+    <h1>Youtub <span>Premium Studio</span></h1>
   </div>
-  <div class="header-info">
-    <div class="tag">✦ AI Digital Ecosystem</div>
-    <h1>PCP <span>Premium Hub</span></h1>
-    <p>Sikar's Interactive NEET &amp; JEE Live Suite</p>
-  </div>
+  <button class="dev-btn" onclick="console.log('Terminal Sync Stable')">Developer Sync</button>
 </header>
-
-<div class="nav-strip" id="topNavStrip">
-  <div class="nav-item active" onclick="switchTab('home', this)">🏠 Home</div>
-  <div class="nav-item" onclick="switchTab('schedule', this)">📅 Schedule</div>
-  <div class="nav-item" onclick="switchTab('dpp', this)">📝 DPP Zone</div>
-  <div class="nav-item" onclick="switchTab('ai', this)">🤖 Gemini Bot</div>
-  <div class="nav-item" onclick="switchTab('notices', this)">📣 Notices</div>
-</div>
 
 <div class="container">
 
   <div class="tab-section active" id="tab-home">
-    <div class="notice-banner" id="noticeBanner">
-      <div style="font-size:18px;">📣</div>
-      <div>
-        <div style="font-size:9px; color:var(--gold); font-weight:800; letter-spacing:1px;">LIVE ANNOUNCEMENT</div>
-        <div class="nb-text" id="noticeText"></div>
-      </div>
-    </div>
-    
     <div class="hero-rutba-card">
-      <div class="hero-welcome">Welcome Student Terminal</div>
-      <h2 class="hero-title">Elevate Your Preparation With Automated Matrix Architecture.</h2>
-      <p style="font-size:12.5px; color:var(--text-muted); line-height:1.6;">PCP Sikar ke distributed system par aapka swagat hai. Live timetable matrices, optimized dynamic doubt solvers, aur structured study streams ka access yahan se control hota hai.</p>
+      <div class="hero-welcome">Automated Matrix System</div>
+      <h2 class="hero-title">Elevate Your Operational Workflow with Next-Gen Intelligence Architecture.</h2>
+      <p class="hero-desc">Youtub custom network system par aapka swagat hai. Dynamic asset loading pipelines, structural interfaces, aur customized multithreaded AI models ka core execution isi dashboard control structure se active hota hai.</p>
       
       <div class="status-badge-grid">
          <div class="status-node">
-            <h4>System Node</h4>
-            <p style="color:var(--neon-blue);">Core Active ✓</p>
+            <h4>Interface Node</h4>
+            <p style="color: var(--neon-blue);">Core Online ✓</p>
          </div>
          <div class="status-node">
             <h4>Tutor Matrix</h4>
-            <p style="color:var(--neon-pink);">Flash 1.5 Omni</p>
+            <p style="color: var(--neon-pink);">Gemini 1.5 Flash</p>
          </div>
       </div>
-    </div>
-    
-    <div class="sec-head"><div class="bar"></div><h2>Academic Track</h2></div>
-
-    <div class="glass-card">
-      <div class="card-head"><h3>🗓 Current Active Timetable</h3></div>
-      <div class="sch-row">
-        <div class="sch-icon">📚</div>
-        <div><div style="font-size:10px; color:var(--text-muted);">MON - SAT</div><div class="sch-text" id="monSatDisplay">Regular Classes &amp; Practice Slots</div></div>
-        <div class="sch-badge badge-green">Active</div>
-      </div>
-      <div class="sch-row">
-        <div class="sch-icon">🔁</div>
-        <div><div style="font-size:10px; color:var(--text-muted);">SUNDAY</div><div class="sch-text" id="sunDisplay">🚨 BACKLOG DAY — Complete Pending Backlogs</div></div>
-        <div class="sch-badge badge-red">Backlog</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="tab-section" id="tab-schedule">
-    <div class="sec-head"><div class="bar"></div><h2>Class Routine</h2></div>
-    <div class="glass-card">
-       <div class="card-head"><h3>📅 Realtime Cluster Routine</h3></div>
-       <div class="sch-row">
-         <div class="sch-icon">📚</div>
-         <div class="sch-text" id="monSatDisplay2">Regular Core Classes &amp; Practice Slots</div>
-       </div>
-       <div class="sch-row">
-         <div class="sch-icon">🔁</div>
-         <div class="sch-text" id="sunDisplay2">🚨 BACKLOG DAY — Self Revision / No Regular Classes</div>
-       </div>
-    </div>
-  </div>
-
-  <div class="tab-section" id="tab-dpp">
-    <div class="sec-head"><div class="bar"></div><h2>Resource Library</h2></div>
-    <div class="glass-card">
-      <div class="card-head"><h3>📝 Daily Practice Papers (DPP)</h3></div>
-      <ul class="paper-list">
-        <li><a href="paper.pdf" target="_blank">📄 Physics — Electrostatics DPP-1 <span class="dl-arrow">📥 Download</span></a></li>
-        <li><a href="paper1.pdf" target="_blank">📄 Chemistry — Chemical Bonding DPP <span class="dl-arrow">📥 Download</span></a></li>
-        <li><a href="paper2.pdf" target="_blank">📄 Biology — Cell Structure Notes <span class="dl-arrow">📥 Download</span></a></li>
-      </ul>
     </div>
   </div>
 
   <div class="tab-section" id="tab-ai">
-    <div class="sec-head"><div class="bar"></div><h2>AI Visual Doubt Solver</h2></div>
     <div class="glass-card">
       <div class="card-head">
-        <span>🤖</span><h3>PCP AI System Core v2.5</h3>
-        <div style="margin-left:auto; font-size:10px; border:1px solid var(--neon-purple); padding:2px 7px; border-radius:10px; color:var(--neon-purple); font-weight:700;">MULTIMODAL</div>
-      </div>
-      
-      <div class="subject-filters">
-        <button class="sub-pill active" onclick="setAISubject('All', this)">All Stream</button>
-        <button class="sub-pill" onclick="setAISubject('Physics', this)">⚡ Physics</button>
-        <button class="sub-pill" onclick="setAISubject('Chemistry', this)">🧪 Chemistry</button>
-        <button class="sub-pill" onclick="setAISubject('Biology', this)">🌿 Biology</button>
-      </div>
-
-      <div class="ai-quick-btns">
-        <button class="quick-btn" onclick="quickAsk('Newton ke laws explain karein short mein')">⚛️ Newton Laws</button>
-        <button class="quick-btn" onclick="quickAsk('Electrostatics ke basic formulas likhiye')">⚡ Electrostatics</button>
-        <button class="quick-btn" onclick="quickAsk('Mitosis aur Meiosis mein main core difference kya hai?')">🌿 Mitosis vs Meiosis</button>
+        <span>🤖</span>
+        <h3>Gemini Multimodal Workspace</h3>
+        <div class="ai-tag">LIVE ENGINE</div>
       </div>
 
       <div class="chat-messages" id="chatMessages">
         <div class="msg bot">
           <div class="msg-avatar">🤖</div>
-          <div class="msg-bubble">
-            Radhe Radhe! Main PCP AI Tutor hoon. 🔬<br><br>
-            Aap apne physics numericals, chemistry organic structures, ya biology questions ki <strong>direct live photo upload karke</strong> ya text type karke instant step-by-step solutions paa sakte hain!
-          </div>
+          <div class="msg-bubble">Radhe Radhe! Main aapka customized AI assistant hoon. 🌌<br><br>Aap mujhse koi bhi सवाल direct text type karke puch sakte hain, ya fir instant <strong>photo click karke/upload karke</strong> pure core solutions paa sakte hain. Main ready hoon!</div>
         </div>
       </div>
 
       <div class="selected-image-preview-bar" id="imgPreviewBar">
-         <img src="" id="targetImgPreview" alt="Upload Preview" />
-         <div style="flex:1; font-size:11px; color:var(--gold); font-weight:600;">Visual asset staged into pipeline. Ready to verify!</div>
+         <img src="" id="targetImgPreview" alt="Upload Staging" />
+         <div style="flex:1; font-size:11.5px; color:var(--gold); font-weight:600;">Asset loaded into engine stream. Ready to fire!</div>
          <button class="remove-selected-img" onclick="clearSelectedImage()">✕</button>
       </div>
 
       <div class="chat-input-container">
          <div class="chat-input-row">
-           <button class="clip-btn" title="Take Photo / Choose Asset">
+           <button class="clip-btn" title="Add Visual Asset">
              📷
              <input type="file" id="chatImageFile" accept="image/*" onchange="handleImageSelection(this)" />
            </button>
-           <input type="text" id="chatInput" placeholder="Apna doubt likhein ya photo click karein..." onkeydown="if(event.key==='Enter') sendMessage()" />
+           <input type="text" id="chatInput" placeholder="Type data query or drop file here..." onkeydown="if(event.key==='Enter') sendMessage()" />
            <button class="chat-send-btn" id="sendBtn" onclick="sendMessage()">➤</button>
          </div>
       </div>
     </div>
   </div>
 
-  <div class="tab-section" id="tab-notices">
-     <div class="sec-head"><div class="bar"></div><h2>Broadcast Feed</h2></div>
-     <div id="noNotice" style="background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:14px; padding:40px; text-align:center; color:var(--text-muted); font-size:13px;">
-       📭 Abhi koi digital notice announce nahi kiya gaya hai.
-     </div>
-  </div>
-
 </div>
 
 <div class="bottom-premium-bar">
-  <div class="bbar-item active" onclick="triggerBottomNav('home')"><span class="icon">🏠</span>Home</div>
-  <div class="bbar-item" onclick="triggerBottomNav('schedule')"><span class="icon">📅</span>Schedule</div>
-  <div class="bbar-item" onclick="triggerBottomNav('ai')"><span class="icon">🤖</span>AI Doubt</div>
-  <div class="bbar-item" onclick="triggerBottomNav('dpp')"><span class="icon">📝</span>DPPs</div>
+  <div class="bbar-item active" id="btn-home" onclick="switchTab('home')"><span>🏠</span>Home</div>
+  <div class="bbar-item" id="btn-ai" onclick="switchTab('ai')"><span>🤖</span>AI Workspace</div>
 </div>
 
-<div class="overlay" id="passOverlay">
-  <div class="pass-box">
-    <div style="font-size:26px; margin-bottom:8px;">🔐</div>
-    <h3 style="font-size:13px; margin-bottom:4px; color:#fff;">System Validation</h3>
-    <p style="font-size:11px; color:var(--text-muted); margin-bottom:14px;">Enter cryptographic gatepass</p>
-    <input type="password" id="passInput" placeholder="••••" onkeydown="if(event.key==='Enter')checkPass()"/>
-    <button class="enter-btn" onclick="checkPass()">Unlock Terminal</button>
-    <div id="passError">Access Flag Refused!</div>
-  </div>
-</div>
-
-<div class="overlay" id="adminOverlay">
-  <div class="admin-modal">
-    <h3 style="font-size:14px; color:var(--neon-blue); margin-bottom:12px;">⚙ Database Cloud Configuration</h3>
-    <label style="font-size:10px; color:var(--text-muted); display:block; margin-bottom:4px;">Mon-Sat Matrix String</label>
-    <input type="text" id="inp_monsat" />
-    <label style="font-size:10px; color:var(--text-muted); display:block; margin-bottom:4px;">Sunday Matrix String</label>
-    <input type="text" id="inp_sunday" />
-    <label style="font-size:10px; color:var(--text-muted); display:block; margin-bottom:4px;">Broadcast Notification Alert</label>
-    <textarea id="inp_notice" rows="3"></textarea>
-    <button class="save-btn" onclick="saveData()">💾 Push to Production</button>
-    <button class="cancel-btn" onclick="document.getElementById('adminOverlay').classList.remove('active')">Abort Sync</button>
-  </div>
-</div>
-
-<div class="toast" id="toast">Database synced securely!</div>
-<footer>© 2026 <span>PCP Digital Studio</span> · Sikar Ecosystem</footer>
+<footer>© 2026 <span>Youtub Studio</span> · Network Interface Engine</footer>
 
 <script>
-  // ══ FIREBASE ENGINE LIVE ROUTING ══
-  const firebaseConfig = {
-    apiKey: "AIzaSyBevXeQ1qL4eC4lfASu4zA2Hj7dq94Pwt0",
-    authDomain: "pcp-portal-57cbb.firebaseapp.com",
-    databaseURL: "https://pcp-portal-57cbb-default-rtdb.firebaseio.com",
-    projectId: "pcp-portal-57cbb",
-    storageBucket: "pcp-portal-57cbb.firebasestorage.app",
-    messagingSenderId: "445270969100",
-    appId: "1:445270969100:web:905c23f3d3b433a74a9729"
-  };
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.database();
-  const PASS = "PCP@2026";
-
-  // Data streaming logs down link
-  db.ref("portal").on("value", (snap) => {
-    const d = snap.val(); if (!d) return;
-    const ms = d.monSat || "Regular Classes & Practice Slots";
-    const su = d.sunday || "🚨 BACKLOG DAY — Complete Pending Backlogs";
-    document.getElementById("monSatDisplay").textContent = ms;
-    document.getElementById("sunDisplay").textContent = su;
-    document.getElementById("monSatDisplay2").textContent = ms;
-    document.getElementById("sunDisplay2").textContent = su;
-    if(d.notice && d.notice.trim()){
-       document.getElementById("noticeText").textContent = d.notice;
-       document.getElementById("noticeBanner").classList.add("show");
-       document.getElementById("noNotice").style.display = "none";
-    } else {
-       document.getElementById("noticeBanner").classList.remove("show");
-       document.getElementById("noNotice").style.display = "block";
-    }
-  });
-
-  // SECRET TRIPLE CLICK TRACKER SYSTEM
-  let secretClickCount = 0;
-  function handleSecretClick() {
-    secretClickCount++;
-    if(secretClickCount === 3) {
-      secretClickCount = 0;
-      document.getElementById("passInput").value = "";
-      document.getElementById("passError").style.display = "none";
-      document.getElementById("passOverlay").classList.add("active");
-    }
-    setTimeout(() => { secretClickCount = 0; }, 2000);
-  }
-
-  function checkPass() {
-    if(document.getElementById("passInput").value === PASS) {
-      document.getElementById("passOverlay").classList.remove("active");
-      db.ref("portal").once("value",(s)=>{
-        const v = s.val()||{};
-        document.getElementById("inp_monsat").value = v.monSat||"";
-        document.getElementById("inp_sunday").value = v.sunday||"";
-        document.getElementById("inp_notice").value = v.notice||"";
-      });
-      document.getElementById("adminOverlay").classList.add("active");
-    } else {
-      document.getElementById("passError").style.display="block";
-    }
-  }
-
-  function saveData() {
-    db.ref("portal").set({
-      monSat: document.getElementById("inp_monsat").value,
-      sunday: document.getElementById("inp_sunday").value,
-      notice: document.getElementById("inp_notice").value
-    }).then(()=>{
-      document.getElementById("adminOverlay").classList.remove("active");
-      const t = document.getElementById("toast"); t.classList.add("show");
-      setTimeout(()=>t.classList.remove("show"),2500);
-    });
-  }
-
-  // ══ CORE APP NAVIGATION TERMINALS ══
-  function switchTab(name, el) {
+  // TAB NAVIGATION MECHANISM
+  function switchTab(name) {
     document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.nav-strip .nav-item').forEach(n => n.classList.remove('active'));
-    document.querySelectorAll('.bottom-premium-bar .bbar-item').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.bbar-item').forEach(b => b.classList.remove('active'));
     
     document.getElementById('tab-' + name).classList.add('active');
-    
-    // Sink tracking link to upper nav strip elements
-    const navItems = document.querySelectorAll('.nav-strip .nav-item');
-    if(name === 'home') navItems[0].classList.add('active');
-    if(name === 'schedule') navItems[1].classList.add('active');
-    if(name === 'dpp') navItems[2].classList.add('active');
-    if(name === 'ai') navItems[3].classList.add('active');
-    if(name === 'notices') navItems[4].classList.add('active');
-
-    const items = ['home','schedule','ai','dpp'];
-    const idx = items.indexOf(name);
-    if(idx !== -1) document.querySelectorAll('.bottom-premium-bar .bbar-item')[idx].classList.add('active');
+    document.getElementById('btn-' + name).classList.add('active');
   }
 
-  function triggerBottomNav(name) {
-    switchTab(name, null);
-  }
-
-  // ══ MULTIMODAL SOLUTIONS GRAPH ENGINE ══
-  let currentSubjectContext = "All";
+  // ══ AI ENGINE MULTIMODAL CAPABILITIES ══
   let base64ImgData = null;
   let imgMimeType = "";
-
-  const chatMessages = document.getElementById("chatMessages");
-  const chatInput = document.getElementById("chatInput");
-  const sendBtn = document.getElementById("sendBtn");
-  const imgPreviewBar = document.getElementById("imgPreviewBar");
-  const targetImgPreview = document.getElementById("targetImgPreview");
-
   const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
-  const GEMINI_API_KEY = "AIzaSyBevXeQ1qL4eC4lfASu4zA2Hj7dq94Pwt0";
-
-  function setAISubject(sub, btn) {
-     currentSubjectContext = sub;
-     document.querySelectorAll('.sub-pill').forEach(p=>p.classList.remove('active'));
-     btn.classList.add('active');
-  }
+  
+  // ⚠️ यहाँ अपनी Gemini API Key डालें
+  const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE"; 
 
   function handleImageSelection(input) {
      const file = input.files[0]; if(!file) return;
@@ -550,8 +249,8 @@
      const reader = new FileReader();
      reader.onload = function(e) {
         base64ImgData = e.target.result.split(',')[1];
-        targetImgPreview.src = e.target.result;
-        imgPreviewBar.style.display = "flex";
+        document.getElementById("targetImgPreview").src = e.target.result;
+        document.getElementById("imgPreviewBar").style.display = "flex";
      };
      reader.readAsDataURL(file);
   }
@@ -559,66 +258,57 @@
   function clearSelectedImage() {
      base64ImgData = null; imgMimeType = "";
      document.getElementById("chatImageFile").value = "";
-     imgPreviewBar.style.display = "none";
+     document.getElementById("imgPreviewBar").style.display = "none";
   }
 
-  function appendMsg(role, text, attachedImgSrc = null) {
+  function appendMsg(role, text, imgSrc = null) {
+    const chatMessages = document.getElementById("chatMessages");
     const div = document.createElement('div'); div.className = 'msg ' + role;
-    let imgHTML = attachedImgSrc ? `<img src="${attachedImgSrc}" class="chat-img-preview" />` : "";
-    div.innerHTML = `<div class="msg-avatar">${role==='bot'?'🤖':'👤'}</div><div class="msg-bubble">${formatAIResponse(text)}${imgHTML}</div>`;
+    let imgHTML = imgSrc ? `<img src="${imgSrc}" class="chat-img-preview" />` : "";
+    div.innerHTML = `<div class="msg-avatar">${role==='bot'?'🤖':'👤'}</div><div class="msg-bubble">${formatText(text)}${imgHTML}</div>`;
     chatMessages.appendChild(div); chatMessages.scrollTop = chatMessages.scrollHeight;
   }
 
-  function formatAIResponse(text) {
+  function formatText(text) {
     return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
   }
 
   async function sendMessage() {
+    const chatInput = document.getElementById("chatInput");
+    const sendBtn = document.getElementById("sendBtn");
     const query = chatInput.value.trim();
     if (!query && !base64ImgData) return;
 
-    let savedImgData = base64ImgData ? targetImgPreview.src : null;
-    appendMsg('user', query || "Attached Question Asset 👇", savedImgData);
-
+    let savedImgData = base64ImgData ? document.getElementById("targetImgPreview").src : null;
+    appendMsg('user', query || "Attached Asset 👇", savedImgData);
     chatInput.value = "";
+
     let activeBase64 = base64ImgData; let activeMime = imgMimeType;
     clearSelectedImage();
 
     chatInput.disabled = true; sendBtn.disabled = true;
-    
-    const loadDiv = document.createElement('div'); loadDiv.className='msg bot'; loadDiv.id='ld';
-    loadDiv.innerHTML=`<div class="msg-avatar">🤖</div><div class="msg-bubble"><div class="typing-indicator"><span></span><span></span><span></span></div></div>`;
-    chatMessages.appendChild(loadDiv); chatMessages.scrollTop = chatMessages.scrollHeight;
 
-    let systemPrompt = `You are the expert PCP Test Engine Sikar AI Tutor. Help the student solve questions for NEET/JEE. Current subject context is ${currentSubjectContext}. Respond in Hinglish. Break down mathematical problems or conceptual queries clearly into neat points. If an image is uploaded, analyze the text/diagram accurately and write clean steps. Context query string: ${query}`;
-
-    let inlineDataParts = [];
-    if(activeBase64) { inlineDataParts.push({ inlineData: { mimeType: activeMime, data: activeBase64 } }); }
-    inlineDataParts.push({ text: systemPrompt });
+    let parts = [{ text: `You are a highly efficient customized AI assistant. Break down solutions clearly in clean Hinglish. Query: ${query}` }];
+    if(activeBase64) { parts.push({ inlineData: { mimeType: activeMime, data: activeBase64 } }); }
 
     try {
       const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ contents: [{ parts: inlineDataParts }] })
+        body: JSON.stringify({ contents: [{ parts: parts }] })
       });
-      const resData = await response.json();
-      if(document.getElementById('ld')) document.getElementById('ld').remove();
-
-      if (resData.candidates && resData.candidates[0].content.parts[0].text) {
-        appendMsg('bot', resData.candidates[0].content.parts[0].text);
+      const data = await response.json();
+      if (data.candidates && data.candidates[0].content.parts[0].text) {
+         appendMsg('bot', data.candidates[0].content.parts[0].text);
       } else {
-        appendMsg('bot', "Processing error. Please provide clear inputs.");
+         appendMsg('bot', "Processing pipeline hit an execution limit. Please resend.");
       }
     } catch (e) {
-      if(document.getElementById('ld')) document.getElementById('ld').remove();
-      appendMsg('bot', "🔴 System network error or token limit hit.");
+      appendMsg('bot', "System Core notification: API Key setup verification needed or network timeout.");
     } finally {
       chatInput.disabled = false; sendBtn.disabled = false; chatInput.focus();
     }
   }
-
-  function quickAsk(text) { chatInput.value = text; sendMessage(); }
 </script>
 </body>
 </html>
