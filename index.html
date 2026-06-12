@@ -4,8 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="vXqo5yNEdIQhF9WjOouZ51JBLEvItwu0CRqMoTfcXB4" />
-  <meta name="description" content="PCP Advanced Coaching App - Direct Database Engine Framework." />
-  <meta name="theme-color" content="#050c07" />
+  <meta name="description" content="PCP Premium Coaching Network - Sikar Academic Engine Terminal." />
+  <meta name="theme-color" content="#030905" />
+  
+  <link rel="icon" type="image/png" href="https://img.icons8.com/external-flaticons-flat-flat-icons/64/external-coaching-body-positive-flaticons-flat-flat-icons.png" />
+  
   <title>PCP Premium Digital Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -17,14 +20,14 @@
     * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
     :root {
-      --bg-dark: #040a05;
-      --card-bg: #09140b;
-      --glass-border: rgba(255, 255, 255, 0.06);
-      --gold: #f39c12;
+      --bg-dark: #040905;
+      --card-bg: #0b140d;
+      --glass-border: rgba(255, 255, 255, 0.07);
+      --gold: #f1c40f;
       --neon-green: #2ecc71;
       --emerald: #1abc9c;
       --text-main: #ffffff;
-      --text-muted: #748c7c;
+      --text-muted: #789281;
       --red: #e74c3c;
     }
 
@@ -33,19 +36,19 @@
       background: var(--bg-dark);
       color: var(--text-main);
       min-height: 100vh;
-      padding-bottom: 90px;
+      padding-bottom: 95px;
       overflow-x: hidden;
     }
 
     .topbar {
-      background: rgba(9, 20, 11, 0.6); backdrop-filter: blur(5px);
+      background: rgba(11, 20, 13, 0.6); backdrop-filter: blur(6px);
       color: var(--text-muted); font-size: 11px; padding: 12px; text-align: center;
       border-bottom: 1px solid var(--glass-border); font-weight: 500; letter-spacing: 0.5px;
     }
     .secret-trigger { cursor: pointer; user-select: none; }
 
     header {
-      background: linear-gradient(to bottom, #09140b, var(--bg-dark));
+      background: linear-gradient(to bottom, #0b140d, var(--bg-dark));
       padding: 24px 20px; border-bottom: 1px solid var(--glass-border);
       display: flex; align-items: center; justify-content: space-between;
     }
@@ -57,8 +60,8 @@
     .live-dot { width: 6px; height: 6px; background: var(--neon-green); border-radius: 50%; animation: pulse 1.5s infinite; }
     @keyframes pulse { 0% { opacity: 0.4; } 50% { opacity: 1; } 100% { opacity: 0.4; } }
 
-    /* Navigation Menu Horizontal Bar */
-    .nav-strip { background: #060d07; display: flex; overflow-x: auto; border-bottom: 1px solid var(--glass-border); position: sticky; top: 0; z-index: 90; }
+    /* Premium Navigation Row */
+    .nav-strip { background: #060c07; display: flex; overflow-x: auto; border-bottom: 1px solid var(--glass-border); position: sticky; top: 0; z-index: 90; }
     .nav-strip::-webkit-scrollbar { display: none; }
     .nav-item { padding: 15px 22px; color: var(--text-muted); font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.2s; position: relative; }
     .nav-item.active { color: var(--neon-green); background: rgba(46,204,113,0.03); }
@@ -75,42 +78,51 @@
 
     .app-card { background: var(--card-bg); border: 1px solid var(--glass-border); border-radius: 14px; overflow: hidden; margin-bottom: 18px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
     
-    /* Plain Home UI Elements */
-    .clean-hero { padding: 24px 20px; }
-    .clean-hero h2 { font-size: 20px; font-weight: 700; margin-bottom: 6px; color: #fff; }
-    .clean-hero p { font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
-    .quick-status-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
-    .status-box { background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); padding: 14px; border-radius: 10px; }
-    .status-box span { font-size: 10px; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
-    .status-box p { font-size: 13.5px; font-weight: 700; color: #fff; margin-top: 2px; }
+    /* Beautiful Premium Coaching Homepage Design */
+    .premium-hero { padding: 30px 24px; background: linear-gradient(135deg, #0b140d 0%, #050d06 100%); position: relative; }
+    .premium-hero h2 { font-size: 22px; font-weight: 800; margin-bottom: 8px; color: #fff; }
+    .premium-hero h2 span { color: var(--neon-green); }
+    .premium-hero p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+    
+    .coaching-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 22px; }
+    .hub-box { background: rgba(0,0,0,0.25); border: 1px solid var(--glass-border); padding: 16px; border-radius: 12px; transition: all 0.2s; cursor: pointer; }
+    .hub-box:hover { border-color: var(--neon-green); background: rgba(46,204,113,0.02); }
+    .hub-box .icon { font-size: 20px; margin-bottom: 6px; display: inline-block; }
+    .hub-box title-lbl { font-size: 13px; font-weight: 700; color: #fff; display: block; }
+    .hub-box desc-lbl { font-size: 11px; color: var(--text-muted); margin-top: 2px; display: block; }
 
-    /* Notice Board Elements */
+    .quick-alert-bar { background: rgba(241,196,15,0.08); border: 1px solid rgba(241,196,15,0.2); border-radius: 10px; padding: 12px 16px; margin-top: 16px; display: flex; align-items: center; gap: 10px; }
+    .quick-alert-bar span { font-size: 12px; font-weight: 600; color: var(--gold); }
+
+    /* Notice Matrix Layer */
     .notice-item { background: rgba(255,255,255,0.01); border: 1px solid var(--glass-border); border-radius: 12px; padding: 16px; margin-bottom: 12px; }
     .notice-date { font-size: 9px; color: var(--gold); font-weight: 700; text-transform: uppercase; margin-bottom: 6px; }
     .notice-text { font-size: 13px; line-height: 1.5; color: #fff; white-space: pre-wrap; }
 
-    /* In-App Direct Video Players */
-    .video-item { background: rgba(0,0,0,0.3); border-bottom: 1px solid var(--glass-border); }
-    .video-item:last-child { border-bottom: none; }
-    .native-player-box { position: relative; background: #000; width: 100%; }
-    .native-player-box video { width: 100%; display: block; max-height: 380px; }
-    .video-details { padding: 14px; }
-    .video-title { font-size: 14px; font-weight: 700; color: #fff; }
+    /* Lecture Display Cards with Custom Thumbnail Matrix */
+    .lecture-node { border-bottom: 1px solid var(--glass-border); background: rgba(0,0,0,0.15); }
+    .lecture-node:last-child { border-bottom: none; }
+    .thumb-player-wrapper { position: relative; width: 100%; aspect-ratio: 16/9; background: #000; overflow: hidden; }
+    .custom-thumb-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; transition: opacity 0.3s; }
+    .play-trigger-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 3; background: var(--neon-green); color: #000; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; cursor: pointer; box-shadow: 0 0 15px var(--neon-green); }
+    .thumb-player-wrapper video { width: 100%; height: 100%; display: block; }
+    .lecture-info-pane { padding: 16px; }
+    .lecture-info-pane h4 { font-size: 14px; font-weight: 700; color: #fff; }
 
-    /* Routine Tracker Row Elements */
+    /* Routine System Core */
     .routine-row { display: flex; align-items: center; gap: 14px; padding: 16px; border-bottom: 1px solid var(--glass-border); }
     .routine-row:last-child { border-bottom: none; }
     .routine-day { font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; width: 80px; }
     .routine-desc { font-size: 13px; font-weight: 600; color: #fff; }
     .badge-backlog { background: rgba(231,76,60,0.15); color: var(--red); border: 1px solid rgba(231,76,60,0.3); padding: 2px 8px; border-radius: 12px; font-size: 9px; font-weight: 700; margin-left: auto; }
 
-    /* Paper/PDF Download Components */
-    .paper-item { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 1px solid var(--glass-border); }
+    /* Papers via GitHub Engine Grid */
+    .paper-item { display: flex; align-items: center; justify-content: space-between; padding: 15px 16px; border-bottom: 1px solid var(--glass-border); }
     .paper-item:last-child { border-bottom: none; }
     .paper-info-title { font-size: 13px; font-weight: 600; color: #fff; }
-    .btn-download { background: linear-gradient(45deg, var(--neon-green), var(--emerald)); color: #000; text-decoration: none; font-size: 11px; font-weight: 700; padding: 6px 12px; border-radius: 6px; cursor: pointer; }
+    .btn-download { background: linear-gradient(45deg, var(--neon-green), var(--emerald)); color: #000; text-decoration: none; font-size: 11px; font-weight: 700; padding: 7px 14px; border-radius: 6px; cursor: pointer; }
 
-    /* Adaptive Multi Quiz Matrix */
+    /* Cumulative Quiz Canvas Engine */
     .quiz-meta-info { padding: 14px; background: rgba(0,0,0,0.15); border-bottom: 1px solid var(--glass-border); font-size: 12px; color: var(--text-muted); display: flex; justify-content: space-between; }
     .quiz-scroller { padding: 16px; display: flex; flex-direction: column; gap: 20px; }
     .quiz-card-node { background: rgba(0,0,0,0.1); border: 1px solid var(--glass-border); padding: 14px; border-radius: 10px; }
@@ -120,31 +132,27 @@
     .quiz-action-btn { width: 100%; background: linear-gradient(45deg, var(--neon-green), var(--emerald)); color: #000; border: none; padding: 14px; font-weight: 800; font-size: 13px; border-radius: 10px; cursor: pointer; text-transform: uppercase; }
     .quiz-report-card { padding: 16px; border-radius: 12px; background: #0f2413; border: 1px solid var(--neon-green); text-align: center; margin-top: 15px; display: none; }
 
-    /* Bottom Navigation App Bar */
-    .bottom-app-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #09140b; border-top: 1px solid var(--glass-border); display: flex; justify-content: space-around; padding: 10px 0 14px; z-index: 100; }
+    /* Global Footer & App Bar Systems */
+    .bottom-app-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #0b140d; border-top: 1px solid var(--glass-border); display: flex; justify-content: space-around; padding: 10px 0 14px; z-index: 100; }
     .b-item { text-align: center; color: var(--text-muted); font-size: 10px; font-weight: 500; cursor: pointer; flex: 1; }
     .b-item span { display: block; font-size: 18px; margin-bottom: 2px; }
     .b-item.active { color: var(--neon-green); }
 
-    /* Overlay Screen Layers */
     .overlay { display: none; position: fixed; inset: 0; background: rgba(3,9,4,0.97); backdrop-filter: blur(8px); z-index: 200; align-items: center; justify-content: center; padding: 16px; overflow-y: auto; }
     .overlay.active { display: flex; }
-    .pass-panel { background: #09140b; border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px; text-align: center; width: 100%; max-width: 300px; }
+    .pass-panel { background: #0b140d; border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px; text-align: center; width: 100%; max-width: 300px; }
     .pass-panel input { width: 100%; padding: 12px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); border-radius: 8px; color: #fff; text-align: center; margin-bottom: 12px; outline: none; font-size: 14px; letter-spacing: 2px; }
     .pass-panel button { width: 100%; background: var(--neon-green); color:#000; border:none; padding:12px; border-radius:8px; font-weight:700; cursor:pointer; }
     
-    /* Control Deck Layout */
-    .deck-panel { background: #040a05; border: 1px solid rgba(46,204,113,0.2); width: 100%; max-width: 480px; padding: 20px; border-radius: 16px; color: #fff; margin: auto; }
+    .deck-panel { background: #040905; border: 1px solid rgba(46,204,113,0.2); width: 100%; max-width: 480px; padding: 20px; border-radius: 16px; color: #fff; margin: auto; }
     .deck-panel h3 { font-size: 14px; color: var(--neon-green); margin-bottom: 14px; text-transform: uppercase; }
     .deck-panel input[type="text"], .deck-panel textarea { width: 100%; background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); border-radius: 8px; padding: 10px; color: #fff; margin-bottom: 10px; outline: none; font-family: inherit; font-size: 12px; }
-    .deck-panel input[type="file"] { margin-bottom: 12px; font-size: 11px; color: var(--text-muted); display: block; margin-top: 4px; }
     .deck-section { border-top: 1px dashed var(--glass-border); padding-top: 12px; margin-top: 8px; }
     .deck-section h4 { font-size: 11.5px; color: var(--gold); margin-bottom: 8px; }
     
     .btn-push { width: 100%; background: linear-gradient(45deg, var(--neon-green), var(--emerald)); color: #000; border: none; padding: 12px; font-weight: 800; border-radius: 8px; cursor: pointer; text-transform: uppercase; font-size: 12px; }
     .btn-close { width: 100%; background: transparent; color: var(--text-muted); border: 1px solid var(--glass-border); padding: 10px; border-radius: 8px; margin-top: 6px; cursor: pointer; font-size: 11.5px; }
     
-    .loader-text { font-size: 11px; color: var(--neon-green); font-weight: 600; margin-top: -4px; margin-bottom: 8px; display: none; }
     .toast { position: fixed; bottom: 85px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--neon-green); color: #000; font-weight: 700; padding: 8px 22px; border-radius: 30px; font-size: 12px; z-index: 300; transition: transform 0.3s; pointer-events: none; }
     .toast.show { transform: translateX(-50%) translateY(0); }
     footer { text-align: center; padding: 25px; font-size: 11px; color: var(--text-muted); margin-bottom: 35px; }
@@ -158,10 +166,10 @@
 
 <header>
   <div class="header-info">
-    <h1>PCP <span>Premium App</span></h1>
-    <p>In-App Database Injection System (No-Storage Model)</p>
+    <h1>PCP <span>Premium Hub</span></h1>
+    <p>Advanced Academic Engine &amp; Live Terminal</p>
   </div>
-  <div class="live-indicator"><div class="live-dot"></div>Live Network</div>
+  <div class="live-indicator"><div class="live-dot"></div>Live Ecosystem</div>
 </header>
 
 <div class="nav-strip" id="appNavbar">
@@ -176,13 +184,36 @@
 <div class="container">
 
   <div class="tab-section active" id="view-home">
-    <div class="app-card clean-hero">
-      <h2>Welcome to your App</h2>
-      <p>Aapka complete safe in-app student dashboard ready hai. Kisi bhi content ya evaluation sheets ko dekhne ke liye navigation tab ka use karein.</p>
+    <div class="app-card premium-hero">
+      <h2>PCP <span>Digital Academy</span></h2>
+      <p>Sikar ka sabse immersive and premium learning framework. Yahan aapko native video sync layer, structured assignments aur live analytics tracking engine milega.</p>
       
-      <div class="quick-status-grid">
-        <div class="status-box"><span>App Integrity</span><p style="color:var(--neon-green)">Database Secure ✓</p></div>
-        <div class="status-box"><span>System Node</span><p style="color:var(--gold)">Realtime Active</p></div>
+      <div class="quick-alert-bar">
+        <span>📢</span>
+        <span>Latest Update: Check 'Suchna' tab for upcoming major dynamic exam shifts.</span>
+      </div>
+
+      <div class="coaching-grid">
+        <div class="hub-box" onclick="navigate('lectures')">
+          <span class="icon">📺</span>
+          <title-lbl>Video Lectures</title-lbl>
+          <desc-lbl>Premium content streaming streaming dashboard</desc-lbl>
+        </div>
+        <div class="hub-box" onclick="navigate('papers')">
+          <span class="icon">📄</span>
+          <title-lbl>Mock Papers</title-lbl>
+          <desc-lbl>Direct papers from GitHub repository source</desc-lbl>
+        </div>
+        <div class="hub-box" onclick="navigate('quiz')">
+          <span class="icon">🧠</span>
+          <title-lbl>Interactive Arena</title-lbl>
+          <desc-lbl>Take live evaluation tests instantly</desc-lbl>
+        </div>
+        <div class="hub-box" onclick="navigate('schedule')">
+          <span class="icon">📅</span>
+          <title-lbl>Academic Matrix</title-lbl>
+          <desc-lbl>Daily routine tracks and Backlog configurations</desc-lbl>
+        </div>
       </div>
     </div>
   </div>
@@ -193,13 +224,13 @@
   </div>
 
   <div class="tab-section" id="view-lectures">
-    <div class="sec-head"><div class="bar"></div><h2>In-App Private Lectures</h2></div>
+    <div class="sec-head"><div class="bar"></div><h2>Academic Lecture Repository</h2></div>
     <div class="app-card" id="lecturesContainer">
        </div>
   </div>
 
   <div class="tab-section" id="view-schedule">
-    <div class="sec-head"><div class="bar"></div><h2>Academic Track Routine</h2></div>
+    <div class="sec-head"><div class="bar"></div><h2>Academic Track Scheduling</h2></div>
     <div class="app-card">
        <div class="routine-row">
           <div class="routine-day">Mon - Sat</div>
@@ -207,23 +238,23 @@
        </div>
        <div class="routine-row">
           <div class="routine-day">Sunday</div>
-          <div class="routine-desc" id="lblSunday">🚨 BACKLOG DAY — Complete Pending Backlogs</div>
+          <div class="routine-desc" id="lblSunday">🚨 BACKLOG DAY — Resolve Pending Backlogs</div>
           <div class="badge-backlog">Backlog</div>
        </div>
     </div>
   </div>
 
   <div class="tab-section" id="view-papers">
-    <div class="sec-head"><div class="bar"></div><h2>Mock Papers &amp; Study Materials</h2></div>
+    <div class="sec-head"><div class="bar"></div><h2>GitHub Repository Examination Sheets</h2></div>
     <div class="app-card" id="papersContainer">
        </div>
   </div>
 
   <div class="tab-section" id="view-quiz">
-    <div class="sec-head"><div class="bar"></div><h2>Interactive Arena Test Assessment</h2></div>
+    <div class="sec-head"><div class="bar"></div><h2>Interactive Assessment Module</h2></div>
     <div class="app-card">
        <div class="quiz-meta-info">
-          <span>Active Test Paper Matrix</span>
+          <span>Active Practice Matrix Block</span>
           <span id="quizTotalLabel">Questions: 0</span>
        </div>
        <div class="quiz-scroller" id="quizQuestionsContainer">
@@ -255,7 +286,7 @@
 
 <div class="overlay" id="devDeckOverlay">
   <div class="deck-panel">
-    <h3>⚙ Realtime Direct Upload Control Deck</h3>
+    <h3>⚙ Realtime Production Link Sync Control Panel</h3>
     
     <label style="font-size:10px; color:var(--text-muted)">Mon-Sat Routine Structure</label>
     <input type="text" id="dev_monsat" />
@@ -269,17 +300,16 @@
     </div>
 
     <div class="deck-section">
-      <h4>📺 Direct Video Upload (No Link Needed)</h4>
+      <h4>📺 Add Lecture Stream With Custom Thumbnail</h4>
       <input type="text" id="dev_v_title" placeholder="Lecture Title Name" />
-      <input type="file" id="dev_v_file" accept="video/mp4" />
-      <div class="loader-text" id="vLoader">Processing &amp; Injecting Video Data Matrix...</div>
+      <input type="text" id="dev_v_url" placeholder="Lecture Video URL Link (.mp4)" />
+      <input type="text" id="dev_v_thumb" placeholder="Custom Thumbnail Image Link URL" />
     </div>
 
     <div class="deck-section">
-      <h4>📄 Direct PDF Paper Upload (No Link Needed)</h4>
-      <input type="text" id="dev_p_title" placeholder="Paper/DPP Description Name" />
-      <input type="file" id="dev_p_file" accept="application/pdf" />
-      <div class="loader-text" id="pLoader">Processing &amp; Injecting PDF Document...</div>
+      <h4>📄 Add Document/Paper Link (Google Drive / GitHub)</h4>
+      <input type="text" id="dev_p_title" placeholder="Paper Evaluation Title" />
+      <input type="text" id="dev_p_url" placeholder="Document File URL Link (PDF/GitHub Raw)" />
     </div>
 
     <div class="deck-section">
@@ -292,16 +322,16 @@
       <input type="text" id="dev_q_ans" placeholder="Correct Answer Token (A, B, C, or D)" />
     </div>
 
-    <button class="btn-push" onclick="commitProductionData()">💾 Commit &amp; Inject Data</button>
+    <button class="btn-push" onclick="commitProductionData()">💾 Sync &amp; Deploy Assets</button>
     <button class="btn-close" onclick="document.getElementById('devDeckOverlay').classList.remove('active')">Close Dashboard</button>
   </div>
 </div>
 
-<div class="toast" id="toastNotification">Action Synced Realtime!</div>
+<div class="toast" id="toastNotification">Content Synced on Network Node!</div>
 <footer>© 2026 <span>PCP Advanced Network</span></footer>
 
 <script>
-  // ══ CORE FIREBASE REALTIME CONNECTION STRATEGY ══
+  // ══ CORE FIREBASE PRODUCTION INSTANCE ══
   const firebaseConfig = {
     apiKey: "AIzaSyBevXeQ1qL4eC4lfASu4zA2Hj7dq94Pwt0",
     authDomain: "pcp-portal-57cbb.firebaseapp.com",
@@ -316,15 +346,15 @@
   const GATE_KEY = "PCP@2026";
   let loadedQuizAnswers = {};
 
-  // Realtime Live Synchronization Pipeline
-  db.ref("direct_app_hub").on("value", (snapshot) => {
+  // Realtime Live Update Routing Pipeline
+  db.ref("link_hub_production").on("value", (snapshot) => {
      const data = snapshot.val(); if(!data) return;
 
-     // Update Routine Track Labels
+     // Update Schedule State Meta
      document.getElementById("lblMonSat").textContent = data.monSat || "Regular Intensive Academic Classes";
-     document.getElementById("lblSunday").textContent = data.sunday || "🚨 BACKLOG DAY — Complete Pending Backlogs";
+     document.getElementById("lblSunday").textContent = data.sunday || "🚨 BACKLOG DAY — Resolve Pending Backlogs";
 
-     // Render Notices Matrix Card
+     // Render Notices Canvas
      const noticesWrapper = document.getElementById("noticesContainer");
      noticesWrapper.innerHTML = "";
      if(data.notices) {
@@ -336,32 +366,37 @@
              </div>`;
         });
      } else {
-        noticesWrapper.innerHTML = `<div style="text-align:center;color:var(--text-muted);font-size:12px;padding:20px;">No active notices posted.</div>`;
+        noticesWrapper.innerHTML = `<div style="text-align:center;color:var(--text-muted);font-size:12px;padding:20px;">No official announcements active.</div>`;
      }
 
-     // Render In-App Native Direct Video Player
+     // Render Custom Lectures With Thumbnail Trigger System
      const lecturesWrapper = document.getElementById("lecturesContainer");
      lecturesWrapper.innerHTML = "";
      if(data.lectures) {
-        Object.values(data.lectures).forEach(lecture => {
+        Object.entries(data.lectures).forEach(([key, lecture]) => {
+           const thumbImg = lecture.thumbnailUrl ? `<img class="custom-thumb-img" id="thumb_${key}" src="${lecture.thumbnailUrl}" alt="Thumbnail">` : '';
+           const playBtn = lecture.thumbnailUrl ? `<div class="play-trigger-btn" id="play_btn_${key}" onclick="startPrivatePlayer('${key}')">▶</div>` : '';
+           
            lecturesWrapper.innerHTML += `
-              <div class="video-item">
-                 <div class="native-player-box">
-                    <video controls controlsList="nodownload" preload="metadata">
-                       <source src="${lecture.base64Data}" type="video/mp4">
-                       Your device does not support inline server video layers.
+              <div class="lecture-node">
+                 <div class="thumb-player-wrapper">
+                    ${thumbImg}
+                    ${playBtn}
+                    <video id="video_${key}" controls controlsList="nodownload" preload="metadata">
+                       <source src="${lecture.videoUrl}" type="video/mp4">
+                       Codec incompatible.
                     </video>
                  </div>
-                 <div class="video-details">
-                    <div class="video-title">${lecture.title}</div>
+                 <div class="lecture-info-pane">
+                    <h4>${lecture.title}</h4>
                  </div>
               </div>`;
         });
      } else {
-        lecturesWrapper.innerHTML = `<div style="text-align:center;color:var(--text-muted);font-size:12px;padding:24px;">No in-app direct videos uploaded.</div>`;
+        lecturesWrapper.innerHTML = `<div style="text-align:center;color:var(--text-muted);font-size:12px;padding:24px;">No video lecture records added.</div>`;
      }
 
-     // Render In-App Direct Base64 Paper Download System
+     // Render Papers Archive System (Drive / GitHub Repository Source Links)
      const papersWrapper = document.getElementById("papersContainer");
      papersWrapper.innerHTML = "";
      if(data.papers) {
@@ -369,14 +404,14 @@
            papersWrapper.innerHTML += `
               <div class="paper-item">
                  <div class="paper-info-title">📄 ${paper.title}</div>
-                 <div class="btn-download" onclick="openDirectPDF('${paper.base64Data}')">📥 Open PDF</div>
+                 <a href="${paper.documentUrl}" target="_blank" class="btn-download">📥 Open Paper</a>
               </div>`;
         });
      } else {
-        papersWrapper.innerHTML = `<div style="text-align:center;color:var(--text-muted);font-size:12px;padding:24px;">No evaluation test papers uploaded.</div>`;
+        papersWrapper.innerHTML = `<div style="text-align:center;color:var(--text-muted);font-size:12px;padding:24px;">No examinations documents mapped yet.</div>`;
      }
 
-     // Render Multi Questions Dynamic Arena
+     // Render Interactive Dynamic Live Test Arena Array Block
      const quizWrapper = document.getElementById("quizQuestionsContainer");
      quizWrapper.innerHTML = "";
      loadedQuizAnswers = {};
@@ -396,46 +431,53 @@
         });
      } else {
         document.getElementById("quizTotalLabel").textContent = "Questions: 0";
-        quizWrapper.innerHTML = `<div style="text-align:center;color:var(--text-muted);font-size:12px;padding:24px;">No custom live test active.</div>`;
+        quizWrapper.innerHTML = `<div style="text-align:center;color:var(--text-muted);font-size:12px;padding:24px;">No interactive assessment online right now.</div>`;
      }
   });
 
-  // Base64 Binary Document Extractor Window Router
-  function openDirectPDF(base64Data) {
-     const win = window.open();
-     win.document.write('<iframe src="' + base64Data + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>');
+  // Custom Thumbnail Overlay Vanish Player
+  function startPrivatePlayer(nodeKey) {
+     const thumbnail = document.getElementById("thumb_" + nodeKey);
+     const playButton = document.getElementById("play_btn_" + nodeKey);
+     const videoPlayer = document.getElementById("video_" + nodeKey);
+     
+     if(thumbnail) thumbnail.style.opacity = "0";
+     if(playButton) playButton.style.display = "none";
+     setTimeout(() => { if(thumbnail) thumbnail.remove(); }, 300);
+     
+     videoPlayer.play();
   }
 
-  // Complete Adaptive Cumulative Evaluation Engine
+  // Interactive Online Assessment Submission Logic Engine
   function submitCompleteQuiz() {
      const keys = Object.keys(loadedQuizAnswers);
-     if(keys.length === 0) { alert("No live quiz compiled!"); return; }
+     if(keys.length === 0) { alert("Test engine is inactive!"); return; }
      
      let totalQuestions = keys.length;
      let score = 0;
-     let unanswered = 0;
+     let unattempted = 0;
 
      keys.forEach(key => {
         const selected = document.querySelector(`input[name="q_${key}"]:checked`);
-        if(!selected) unanswered++;
+        if(!selected) unattempted++;
         else if(selected.value === loadedQuizAnswers[key]) score++;
      });
 
-     if(unanswered > 0) {
-        if(!confirm(`Aapne ${unanswered} questions khali chhode hain. Kya aap test submit karna chahte hain?`)) return;
+     if(unattempted > 0) {
+        if(!confirm(`Aapne ${unattempted} questions coordinate nahi kiye hain. Submit karein?`)) return;
      }
 
      const reportBox = document.getElementById("testResultReport");
      reportBox.style.display = "block";
      reportBox.innerHTML = `
-        <h3 style="font-size:14px;color:var(--neon-green)">🎯 Evaluation Report Card</h3>
-        <p style="font-size:24px;font-weight:800;margin:10px 0;letter-spacing:1px;">Score: ${score} / ${totalQuestions}</p>
-        <p style="font-size:11.5px;color:var(--text-muted)">Aapka score safe evaluation system terminal par process kiya gaya hai.</p>
+        <h3 style="font-size:14px;color:var(--neon-green)">🎯 Instant Score Matrix Card</h3>
+        <p style="font-size:24px;font-weight:800;margin:10px 0;letter-spacing:1px;">Result: ${score} / ${totalQuestions}</p>
+        <p style="font-size:11px;color:var(--text-muted)">Accuracy verification verified on secure browser client successfully.</p>
      `;
      reportBox.scrollIntoView({ behavior: 'smooth' });
   }
 
-  // Admin Access Strategy Engine Hooks
+  // Access Terminal Hooks
   let triggerCount = 0;
   function handleSecretTrigger() {
      triggerCount++;
@@ -451,7 +493,7 @@
      if(document.getElementById("txtPass").value === GATE_KEY) {
         document.getElementById("passOverlay").classList.remove("active");
         
-        db.ref("direct_app_hub").once("value", (snap) => {
+        db.ref("link_hub_production").once("value", (snap) => {
            const v = snap.val() || {};
            document.getElementById("dev_monsat").value = v.monSat || "";
            document.getElementById("dev_sunday").value = v.sunday || "";
@@ -459,9 +501,10 @@
 
         document.getElementById("dev_notice").value = "";
         document.getElementById("dev_v_title").value = "";
-        document.getElementById("dev_v_file").value = "";
+        document.getElementById("dev_v_url").value = "";
+        document.getElementById("dev_v_thumb").value = "";
         document.getElementById("dev_p_title").value = "";
-        document.getElementById("dev_p_file").value = "";
+        document.getElementById("dev_p_url").value = "";
         document.getElementById("dev_q_text").value = "";
         document.getElementById("dev_q_a").value = "";
         document.getElementById("dev_q_b").value = "";
@@ -471,21 +514,11 @@
 
         document.getElementById("devDeckOverlay").classList.add("active");
      } else {
-        alert("Authorization Failed!");
+        alert("Access Blocked!");
      }
   }
 
-  // Base64 Procedural Conversion Matrix
-  function getBase64Encoder(file) {
-     return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = error => reject(error);
-     });
-  }
-
-  // Production Node Core Execution
+  // Deploy Links Matrix Data To Production Instance Node
   async function commitProductionData() {
      const updates = {
         monSat: document.getElementById("dev_monsat").value,
@@ -494,31 +527,20 @@
 
      const noticeText = document.getElementById("dev_notice").value.trim();
      if(noticeText) {
-        await db.ref("direct_app_hub/notices").push({ text: noticeText, timestamp: Date.now() });
+        await db.ref("link_hub_production/notices").push({ text: noticeText, timestamp: Date.now() });
      }
 
-     // Injecting Video directly to DB via Base64 Array
      const vTitle = document.getElementById("dev_v_title").value.trim();
-     const vFile = document.getElementById("dev_v_file").files[0];
-     if(vTitle && vFile) {
-        document.getElementById("vLoader").style.display = "block";
-        try {
-           const b64Video = await getBase64Encoder(vFile);
-           await db.ref("direct_app_hub/lectures").push({ title: vTitle, base64Data: b64Video });
-        } catch(err) { alert("Video encoding compression failed!"); }
-        document.getElementById("vLoader").style.display = "none";
+     const vUrl = document.getElementById("dev_v_url").value.trim();
+     const vThumb = document.getElementById("dev_v_thumb").value.trim();
+     if(vTitle && vUrl) {
+        await db.ref("link_hub_production/lectures").push({ title: vTitle, videoUrl: vUrl, thumbnailUrl: vThumb });
      }
 
-     // Injecting PDF directly to DB via Base64 Array
      const pTitle = document.getElementById("dev_p_title").value.trim();
-     const pFile = document.getElementById("dev_p_file").files[0];
-     if(pTitle && pFile) {
-        document.getElementById("pLoader").style.display = "block";
-        try {
-           const b64PDF = await getBase64Encoder(pFile);
-           await db.ref("direct_app_hub/papers").push({ title: pTitle, base64Data: b64PDF });
-        } catch(err) { alert("PDF injection encoding error."); }
-        document.getElementById("pLoader").style.display = "none";
+     const pUrl = document.getElementById("dev_p_url").value.trim();
+     if(pTitle && pUrl) {
+        await db.ref("link_hub_production/papers").push({ title: pTitle, documentUrl: pUrl });
      }
 
      const qText = document.getElementById("dev_q_text").value.trim();
@@ -531,17 +553,17 @@
            d: document.getElementById("dev_q_d").value,
            ans: document.getElementById("dev_q_ans").value
         };
-        await db.ref("direct_app_hub/quizBlock").push(qNode);
+        await db.ref("link_hub_production/quizBlock").push(qNode);
      }
 
-     await db.ref("direct_app_hub").update(updates);
+     await db.ref("link_hub_production").update(updates);
      document.getElementById("devDeckOverlay").classList.remove("active");
      const toast = document.getElementById("toastNotification");
      toast.classList.add("show");
      setTimeout(() => toast.classList.remove("show"), 2500);
   }
 
-  // Routing Framework State Engine Navigation
+  // Navigation Controller States
   function navigate(viewName) {
      document.querySelectorAll(".tab-section").forEach(s => s.classList.remove("active"));
      document.querySelectorAll(".nav-strip .nav-item").forEach(i => i.classList.remove("active"));
@@ -562,3 +584,4 @@
 </script>
 </body>
 </html>
+            
