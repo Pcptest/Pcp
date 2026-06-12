@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Youtub Premium Hub - Futuristic Web Engine" />
-  <meta name="theme-color" content="#020617" />
-  <title>Youtub Premium Studio</title>
+  <meta name="google-site-verification" content="vXqo5yNEdIQhF9WjOouZ51JBLEvItwu0CRqMoTfcXB4" />
+  <meta name="description" content="PCP Digital Hub Sikar - NEET/JEE Study Material, Official Schedules, Daily DPP and Notes." />
+  <meta name="theme-color" content="#041208" />
+  <title>PCP Premium Digital Studio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
@@ -13,15 +14,16 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg-dark: #020617;
+      --bg-dark: #040c06;
       --glass-bg: rgba(255, 255, 255, 0.03);
       --glass-border: rgba(255, 255, 255, 0.08);
-      --gold: #ffb300;
-      --neon-blue: #00f2fe;
-      --neon-purple: #4facfe;
-      --neon-pink: #ff007f;
+      --gold: #ffd700;
+      --neon-green: #2ecc71;
+      --emerald: #1abc9c;
+      --mint: #a3e4d7;
       --text-main: #ffffff;
-      --text-muted: #94a3b8;
+      --text-muted: #9bb0a3;
+      --red: #ff4d4d;
     }
 
     body {
@@ -34,280 +36,250 @@
       position: relative;
     }
 
-    /* 🌊 PREMIUM HIGH-GLOW LIQUID BACKGROUND BLUR ORBS */
+    /* 🌊 PREMIUM GREEN GRADIENT BLUR ORBS */
     body::before, body::after {
-      content: ''; position: fixed; width: 350px; height: 350px; border-radius: 50%; z-index: -1; filter: blur(130px); opacity: 0.4; pointer-events: none;
+      content: ''; position: fixed; width: 320px; height: 320px; border-radius: 50%; z-index: -1; filter: blur(130px); opacity: 0.25; pointer-events: none;
     }
-    body::before { top: -80px; left: -80px; background: linear-gradient(45deg, var(--neon-blue), #4facfe); animation: liquidMovement1 15s infinite alternate ease-in-out; }
-    body::after { bottom: -20px; right: -80px; background: linear-gradient(45deg, #7f00ff, var(--neon-pink)); animation: liquidMovement2 15s infinite alternate ease-in-out; }
-    
-    @keyframes liquidMovement1 { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(60px, 80px) scale(1.2); } }
-    @keyframes liquidMovement2 { 0% { transform: translate(0,0) scale(1.2); } 100% { transform: translate(-60px, -60px) scale(0.85); } }
+    body::before { top: -60px; left: -60px; background: linear-gradient(45deg, var(--neon-green), var(--emerald)); }
+    body::after { bottom: 40px; right: -60px; background: linear-gradient(45deg, var(--emerald), #114b29); }
 
-    /* ══ GLASSMORPHISM HEADER ══ */
+    /* ══ TOP BAR ══ */
+    .topbar {
+      background: rgba(255, 255, 255, 0.01); backdrop-filter: blur(5px);
+      color: var(--text-muted); font-size: 11px; padding: 9px 20px; text-align: center;
+      border-bottom: 1px solid var(--glass-border); font-weight: 500; letter-spacing: 0.5px;
+    }
+
+    /* ══ GLASS HEADER ══ */
     header {
-      background: rgba(255, 255, 255, 0.01); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      background: rgba(4, 12, 6, 0.8); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
       border-bottom: 1px solid var(--glass-border); padding: 22px 20px;
-      display: flex; align-items: center; justify-content: space-between;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      display: flex; align-items: center; gap: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.4);
     }
-    .logo-area h1 { font-size: 24px; font-weight: 800; letter-spacing: 0.5px; }
-    .logo-area h1 span { background: linear-gradient(45deg, var(--neon-blue), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    
-    /* 🎯 HIDDEN DEVELOPER BUTTON */
-    .dev-btn {
-      background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.04);
-      color: rgba(255,255,255,0.15); padding: 5px 10px; border-radius: 6px;
-      font-size: 10px; cursor: pointer; transition: all 0.3s;
-    }
-    .dev-btn:hover { color: var(--neon-blue); border-color: rgba(0,242,254,0.2); background: rgba(0,242,254,0.02); }
+    .logo-wrap img { width: 68px; height: 68px; border-radius: 50%; border: 2px solid var(--neon-green); box-shadow: 0 0 15px rgba(46,204,113,0.25); background: #fff; padding: 2px; }
+    .header-info .tag { display: inline-block; background: rgba(46, 204, 113, 0.08); border: 1px solid rgba(46,204,113,0.3); color: var(--neon-green); font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 20px; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px; }
+    .header-info h1 { font-size: 22px; font-weight: 800; }
+    .header-info h1 span { background: linear-gradient(45deg, var(--neon-green), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .header-info p { font-size: 11.5px; color: var(--text-muted); }
 
-    .container { max-width: 800px; margin: 0 auto; padding: 25px 14px; }
+    /* ══ NAVIGATION ══ */
+    .nav-strip { background: rgba(0,0,0,0.2); display: flex; overflow-x: auto; border-bottom: 1px solid var(--glass-border); }
+    .nav-strip::-webkit-scrollbar { display: none; }
+    .nav-item { padding: 14px 22px; color: var(--text-muted); font-size: 13px; font-weight: 600; cursor: pointer; white-space: nowrap; transition: all 0.3s; position: relative; }
+    .nav-item.active { color: var(--neon-green); }
+    .nav-item.active::after { content: ''; position: absolute; bottom: 0; left: 22px; right: 22px; height: 2px; background: var(--neon-green); box-shadow: 0 0 8px var(--neon-green); border-radius: 2px; }
+
+    /* ══ CONTAINER & LAYOUTS ══ */
+    .container { max-width: 800px; margin: 0 auto; padding: 22px 14px; }
     .tab-section { display: none; }
-    .tab-section.active { display: block; animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
-    @keyframes slideUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+    .tab-section.active { display: block; animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* 🔥 HOME PAGE SUPREME RUTBA CARD */
+    .sec-head { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; margin-top: 5px; }
+    .sec-head .bar { width: 4px; height: 18px; background: var(--neon-green); box-shadow: 0 0 8px var(--neon-green); border-radius: 2px; }
+    .sec-head h2 { font-size: 15px; font-weight: 700; letter-spacing: 0.3px; }
+
+    /* HERO CARD */
     .hero-rutba-card {
-      background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
-      border: 1px solid rgba(255,255,255,0.09); border-radius: 24px; padding: 30px;
-      margin-bottom: 25px; position: relative; overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+      background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005));
+      border: 1px solid rgba(255,255,255,0.06); border-radius: 20px; padding: 22px;
+      margin-bottom: 22px; position: relative; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
     }
-    .hero-rutba-card::before {
-      content: ''; position: absolute; top: -40%; right: -40%; width: 250px; height: 250px;
-      background: var(--neon-blue); filter: blur(100px); opacity: 0.2; pointer-events: none;
-    }
-    .hero-welcome { font-size: 11px; color: var(--gold); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; text-shadow: 0 0 10px rgba(255,179,0,0.2); }
-    .hero-title { font-size: 28px; font-weight: 800; line-height: 1.3; margin-bottom: 14px; background: linear-gradient(90deg, #ffffff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .hero-desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.7; }
-
-    .status-badge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
-    .status-node {
-      background: rgba(0, 0, 0, 0.3); border: 1px solid var(--glass-border); padding: 14px 16px; border-radius: 14px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05); transition: border-color 0.3s;
-    }
-    .status-node:hover { border-color: rgba(0,242,254,0.3); }
-    .status-node h4 { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
-    .status-node p { font-size: 14px; font-weight: 700; margin-top: 4px; color: #fff; }
-
-    /* ══ 🤖 ULTRA GLOW GLASS AI ENGINE ══ */
-    .glass-card {
-      background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border); border-radius: 20px; overflow: hidden; margin-bottom: 22px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05);
-    }
-    .card-head { background: rgba(255,255,255,0.01); padding: 16px 20px; border-bottom: 1px solid var(--glass-border); display: flex; align-items: center; gap: 10px; }
-    .card-head h3 { font-size: 15px; font-weight: 700; color: #fff; letter-spacing: 0.3px; }
-    .card-head .ai-tag { margin-left: auto; font-size: 10px; background: rgba(0,242,254,0.08); border: 1px solid rgba(0,242,254,0.3); padding: 3px 9px; border-radius: 12px; color: var(--neon-blue); font-weight: 700; letter-spacing: 0.5px; }
-
-    .chat-messages { height: 350px; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 14px; background: rgba(0,0,0,0.2); }
-    .chat-messages::-webkit-scrollbar { width: 3px; }
-    .chat-messages::-webkit-scrollbar-thumb { background: var(--glass-border); }
+    .hero-welcome { font-size: 12px; color: var(--gold); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+    .hero-title { font-size: 24px; font-weight: 800; line-height: 1.3; margin-bottom: 12px; background: linear-gradient(90deg, #fff, var(--mint)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     
-    .msg { display: flex; gap: 12px; max-width: 85%; }
+    .status-badge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
+    .status-node {
+      background: rgba(0, 0, 0, 0.3); border: 1px solid var(--glass-border); padding: 12px 14px; border-radius: 12px;
+    }
+    .status-node h4 { font-size: 10.5px; color: var(--text-muted); text-transform: uppercase; }
+    .status-node p { font-size: 13.5px; font-weight: 700; margin-top: 3px; color: #fff; }
+
+    /* CARD DESIGN */
+    .glass-card {
+      background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border); border-radius: 16px; overflow: hidden; margin-bottom: 22px;
+    }
+    .card-head { background: rgba(255,255,255,0.01); padding: 14px 18px; border-bottom: 1px solid var(--glass-border); display: flex; align-items: center; gap: 10px; }
+    .card-head h3 { font-size: 14px; font-weight: 700; color: #fff; }
+
+    .sch-row { display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-bottom: 1px solid var(--glass-border); }
+    .sch-row:last-child { border-bottom: none; }
+    .sch-icon { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); }
+    .sch-text { font-size: 13px; font-weight: 600; line-height: 1.5; }
+    
+    .sch-badge { margin-left: auto; padding: 3px 10px; border-radius: 20px; font-size: 10px; font-weight: 700; text-transform: uppercase; }
+    .badge-green { background: rgba(46,204,113,0.12); color: var(--neon-green); border: 1px solid var(--neon-green); }
+    .badge-red { background: rgba(255,77,77,0.12); color: var(--red); border: 1px solid var(--red); }
+
+    /* RESOURCE MATRIX FILES */
+    .paper-list { list-style: none; padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+    .paper-list li a {
+      display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.01); border: 1px solid var(--glass-border); border-radius: 10px; padding: 12px 14px; text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 13px; transition: all 0.2s;
+    }
+    .paper-list li a:hover { background: rgba(46,204,113,0.04); border-color: var(--neon-green); }
+    .paper-list li a .dl-arrow { margin-left: auto; background: linear-gradient(45deg, var(--neon-green), var(--emerald)); color: #000; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; }
+
+    /* CHAT PANELS */
+    .chat-messages { height: 350px; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 12px; background: rgba(0,0,0,0.2); }
+    .msg { display: flex; gap: 10px; max-width: 85%; }
     .msg.user { align-self: flex-end; flex-direction: row-reverse; }
     .msg.bot { align-self: flex-start; }
-    .msg-avatar { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); }
-    .msg.bot .msg-avatar { border-color: var(--neon-blue); box-shadow: 0 0 10px rgba(0,242,254,0.2); color: var(--neon-blue); }
-    .msg.user .msg-avatar { background: var(--gold); border-color: var(--gold); color: #000; font-weight: bold; box-shadow: 0 0 10px rgba(255,179,0,0.2); }
+    .msg-avatar { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; background: rgba(255,255,255,0.06); border: 1px solid var(--glass-border); }
+    .msg-bubble { padding: 10px 14px; border-radius: 14px; font-size: 12.5px; line-height: 1.6; white-space: pre-wrap; }
+    .msg.bot .msg-bubble { background: rgba(255,255,255,0.02); color: #e1e7ee; border: 1px solid var(--glass-border); }
+    .msg.user .msg-bubble { background: linear-gradient(135deg, #0b2214, #040c06); border: 1px solid rgba(46,204,113,0.2); color: #fff; }
     
-    .msg-bubble { padding: 12px 16px; border-radius: 16px; font-size: 13px; line-height: 1.6; white-space: pre-wrap; word-break: break-word; }
-    .msg.bot .msg-bubble { background: rgba(255,255,255,0.02); color: #e2e8f0; border: 1px solid var(--glass-border); border-bottom-left-radius: 3px; }
-    .msg.user .msg-bubble { background: linear-gradient(135deg, #0f172a, #020617); border: 1px solid rgba(0,242,254,0.15); color: #fff; border-bottom-right-radius: 3px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-    
-    .chat-img-preview { max-width: 100%; max-height: 180px; border-radius: 10px; margin-top: 8px; display: block; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+    .chat-input-container { background: rgba(0,0,0,0.2); border-top: 1px solid var(--glass-border); }
+    .chat-input-row { display: flex; gap: 8px; padding: 10px 14px; align-items: center; }
+    .chat-input-row input[type="text"] { flex: 1; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); border-radius: 20px; padding: 9px 16px; font-size: 12.5px; color: #fff; outline: none; }
+    .chat-input-row input[type="text"]:focus { border-color: var(--neon-green); }
+    .chat-send-btn { background: linear-gradient(45deg, var(--neon-green), var(--emerald)); color: #000; border: none; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; font-weight: bold; }
 
-    /* STAGING PIPELINE STRIP */
-    .selected-image-preview-bar { display: none; align-items: center; gap: 12px; padding: 10px 16px; background: rgba(255,179,0,0.04); border-top: 1px solid rgba(255,179,0,0.15); border-bottom: 1px solid rgba(255,179,0,0.15); }
-    .selected-image-preview-bar img { width: 42px; height: 42px; object-fit: cover; border-radius: 8px; border: 1px solid var(--gold); box-shadow: 0 0 8px rgba(255,179,0,0.2); }
-    .remove-selected-img { background: #ff3333; color: #fff; border: none; border-radius: 50%; width: 20px; height: 20px; font-size: 11px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: bold; }
-
-    /* CHAT FOOT INPUT */
-    .chat-input-container { background: rgba(0,0,0,0.25); border-top: 1px solid var(--glass-border); }
-    .chat-input-row { display: flex; gap: 10px; padding: 12px 16px; align-items: center; }
-    .clip-btn { background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); color: #fff; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; position: relative; transition: all 0.2s; }
-    .clip-btn:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
-    .clip-btn input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
-    
-    .chat-input-row input[type="text"] { flex: 1; background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); border-radius: 24px; padding: 11px 18px; font-size: 13px; color: #fff; outline: none; transition: border-color 0.3s; font-family: inherit; }
-    .chat-input-row input[type="text"]:focus { border-color: var(--neon-blue); box-shadow: 0 0 10px rgba(0,242,254,0.1); }
-    
-    .chat-send-btn { background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple)); color: #000; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; font-weight: bold; transition: transform 0.2s; box-shadow: 0 0 10px rgba(0,242,254,0.2); }
-    .chat-send-btn:active { transform: scale(0.92); }
-
-    /* ══ PRESET FIXED BOTTOM BAR NAVBAR ══ */
+    /* FIXED APP BAR */
     .bottom-premium-bar {
       position: fixed; bottom: 0; left: 0; right: 0;
-      background: rgba(2, 6, 23, 0.4); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
-      display: flex; justify-content: space-around; padding: 12px 0 14px;
-      border-top: 1px solid var(--glass-border); z-index: 200; box-shadow: 0 -15px 35px rgba(0,0,0,0.5);
+      background: rgba(4, 12, 6, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      display: flex; justify-content: space-around; padding: 8px 0 12px;
+      border-top: 1px solid var(--glass-border); z-index: 200;
     }
-    .bbar-item { text-align: center; color: var(--text-muted); font-size: 11px; font-weight: 500; cursor: pointer; flex: 1; transition: all 0.3s; }
-    .bbar-item.active { color: var(--neon-blue); text-shadow: 0 0 8px rgba(0,242,254,0.4); }
-    .bbar-item span { display: block; font-size: 20px; margin-bottom: 3px; transition: transform 0.3s; }
-    .bbar-item.active span { transform: translateY(-2px); }
+    .bbar-item { text-align: center; color: var(--text-muted); font-size: 10px; font-weight: 500; cursor: pointer; flex: 1; }
+    .bbar-item .icon { font-size: 19px; margin-bottom: 2px; display: block; }
+    .bbar-item:hover, .bbar-item.active { color: var(--neon-green); }
 
-    footer { text-align: center; padding: 25px; font-size: 11px; color: var(--text-muted); margin-bottom: 50px; letter-spacing: 0.5px; }
-    footer span { color: var(--neon-blue); font-weight: 600; }
+    footer { text-align: center; padding: 20px; font-size: 11px; color: var(--text-muted); margin-bottom: 45px; }
+    footer span { color: var(--neon-green); }
   </style>
 </head>
 <body>
 
+<div class="topbar">
+  <span>📍 PCP Coaching · Sikar, Rajasthan</span>
+</div>
+
 <header>
-  <div class="logo-area">
-    <h1>Youtub <span>Premium Studio</span></h1>
+  <div class="logo-wrap">
+    <img src="logo.png" alt="PCP Logo" onerror="this.style.display='none'" />
   </div>
-  <button class="dev-btn" onclick="console.log('Terminal Sync Stable')">Developer Sync</button>
+  <div class="header-info">
+    <div class="tag">✦ AI Digital Ecosystem</div>
+    <h1>PCP <span>Premium Hub</span></h1>
+    <p>Sikar's Interactive NEET &amp; JEE Live Suite</p>
+  </div>
 </header>
 
-<div class="container">
+<div class="nav-strip" id="topNavStrip">
+  <div class="nav-item active" onclick="switchTab('home')">🏠 Home</div>
+  <div class="nav-item" onclick="switchTab('schedule')">📅 Schedule</div>
+  <div class="nav-item" onclick="switchTab('dpp')">📝 DPP Zone</div>
+  <div class="nav-item" onclick="switchTab('ai')">🤖 Gemini Bot</div>
+</div>
 
+<div class="container">
   <div class="tab-section active" id="tab-home">
     <div class="hero-rutba-card">
-      <div class="hero-welcome">Automated Matrix System</div>
-      <h2 class="hero-title">Elevate Your Operational Workflow with Next-Gen Intelligence Architecture.</h2>
-      <p class="hero-desc">Youtub custom network system par aapka swagat hai. Dynamic asset loading pipelines, structural interfaces, aur customized multithreaded AI models ka core execution isi dashboard control structure se active hota hai.</p>
-      
+      <div class="hero-welcome">Welcome Student Terminal</div>
+      <h2 class="hero-title">Elevate Your Preparation With Automated Matrix Architecture.</h2>
+      <p style="font-size:12.5px; color:var(--text-muted); line-height:1.6;">PCP Sikar ke distributed system par aapka swagat hai. Live timetable matrices aur structured study streams ka access yahan se hota hai.</p>
       <div class="status-badge-grid">
          <div class="status-node">
-            <h4>Interface Node</h4>
-            <p style="color: var(--neon-blue);">Core Online ✓</p>
+            <h4>System Node</h4>
+            <p style="color:var(--neon-green);">Core Active ✓</p>
          </div>
          <div class="status-node">
             <h4>Tutor Matrix</h4>
-            <p style="color: var(--neon-pink);">Gemini 1.5 Flash</p>
+            <p style="color:var(--mint);">Flash 1.5 Omni</p>
          </div>
       </div>
+    </div>
+    
+    <div class="sec-head"><div class="bar"></div><h2>Academic Track</h2></div>
+    <div class="glass-card">
+      <div class="card-head"><h3>🗓 Current Active Timetable</h3></div>
+      <div class="sch-row">
+        <div class="sch-icon">📚</div>
+        <div><div style="font-size:10px; color:var(--text-muted);">MON - SAT</div><div class="sch-text">Regular Classes &amp; Practice Slots</div></div>
+        <div class="sch-badge badge-green">Active</div>
+      </div>
+      <div class="sch-row">
+        <div class="sch-icon">🔁</div>
+        <div><div style="font-size:10px; color:var(--text-muted);">SUNDAY</div><div class="sch-text">🚨 BACKLOG DAY — Complete Pending Backlogs</div></div>
+        <div class="sch-badge badge-red">Backlog</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-section" id="tab-schedule">
+    <div class="sec-head"><div class="bar"></div><h2>Class Routine</h2></div>
+    <div class="glass-card">
+       <div class="card-head"><h3>📅 Realtime Cluster Routine</h3></div>
+       <div class="sch-row">
+         <div class="sch-icon">📚</div>
+         <div class="sch-text">Regular Core Classes &amp; Practice Slots (Mon - Sat)</div>
+       </div>
+       <div class="sch-row">
+         <div class="sch-icon">🔁</div>
+         <div class="sch-text">🚨 BACKLOG DAY — Self Revision / No Regular Classes (Sunday)</div>
+       </div>
+    </div>
+  </div>
+
+  <div class="tab-section" id="tab-dpp">
+    <div class="sec-head"><div class="bar"></div><h2>Resource Library</h2></div>
+    <div class="glass-card">
+      <div class="card-head"><h3>📝 Daily Practice Papers (DPP)</h3></div>
+      <ul class="paper-list">
+        <li><a href="#">📄 Physics — Electrostatics DPP-1 <span class="dl-arrow">📥 Download</span></a></li>
+        <li><a href="#">📄 Chemistry — Chemical Bonding DPP <span class="dl-arrow">📥 Download</span></a></li>
+        <li><a href="#">📄 Biology — Cell Structure Notes <span class="dl-arrow">📥 Download</span></a></li>
+      </ul>
     </div>
   </div>
 
   <div class="tab-section" id="tab-ai">
+    <div class="sec-head"><div class="bar"></div><h2>AI Visual Doubt Solver</h2></div>
     <div class="glass-card">
-      <div class="card-head">
-        <span>🤖</span>
-        <h3>Gemini Multimodal Workspace</h3>
-        <div class="ai-tag">LIVE ENGINE</div>
-      </div>
-
       <div class="chat-messages" id="chatMessages">
         <div class="msg bot">
           <div class="msg-avatar">🤖</div>
-          <div class="msg-bubble">Radhe Radhe! Main aapka customized AI assistant hoon. 🌌<br><br>Aap mujhse koi bhi सवाल direct text type karke puch sakte hain, ya fir instant <strong>photo click karke/upload karke</strong> pure core solutions paa sakte hain. Main ready hoon!</div>
+          <div class="msg-bubble">Radhe Radhe! Main PCP AI Tutor hoon. Aap apne doubt pooch sakte hain.</div>
         </div>
       </div>
-
-      <div class="selected-image-preview-bar" id="imgPreviewBar">
-         <img src="" id="targetImgPreview" alt="Upload Staging" />
-         <div style="flex:1; font-size:11.5px; color:var(--gold); font-weight:600;">Asset loaded into engine stream. Ready to fire!</div>
-         <button class="remove-selected-img" onclick="clearSelectedImage()">✕</button>
-      </div>
-
       <div class="chat-input-container">
          <div class="chat-input-row">
-           <button class="clip-btn" title="Add Visual Asset">
-             📷
-             <input type="file" id="chatImageFile" accept="image/*" onchange="handleImageSelection(this)" />
-           </button>
-           <input type="text" id="chatInput" placeholder="Type data query or drop file here..." onkeydown="if(event.key==='Enter') sendMessage()" />
-           <button class="chat-send-btn" id="sendBtn" onclick="sendMessage()">➤</button>
+           <input type="text" placeholder="Apna doubt likhein..." />
+           <button class="chat-send-btn">➤</button>
          </div>
       </div>
     </div>
   </div>
-
 </div>
 
 <div class="bottom-premium-bar">
-  <div class="bbar-item active" id="btn-home" onclick="switchTab('home')"><span>🏠</span>Home</div>
-  <div class="bbar-item" id="btn-ai" onclick="switchTab('ai')"><span>🤖</span>AI Workspace</div>
+  <div class="bbar-item active" onclick="switchTab('home')"><span class="icon">🏠</span>Home</div>
+  <div class="bbar-item" onclick="switchTab('schedule')"><span class="icon">📅</span>Schedule</div>
+  <div class="bbar-item" onclick="switchTab('ai')"><span class="icon">🤖</span>AI Doubt</div>
+  <div class="bbar-item" onclick="switchTab('dpp')"><span class="icon">📝</span>DPPs</div>
 </div>
 
-<footer>© 2026 <span>Youtub Studio</span> · Network Interface Engine</footer>
+<footer>© 2026 <span>PCP Digital Studio</span> · Sikar Ecosystem</footer>
 
 <script>
-  // TAB NAVIGATION MECHANISM
   function switchTab(name) {
     document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.bbar-item').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.nav-strip .nav-item').forEach(n => n.classList.remove('active'));
+    document.querySelectorAll('.bottom-premium-bar .bbar-item').forEach(b => b.classList.remove('active'));
     
     document.getElementById('tab-' + name).classList.add('active');
-    document.getElementById('btn-' + name).classList.add('active');
-  }
-
-  // ══ AI ENGINE MULTIMODAL CAPABILITIES ══
-  let base64ImgData = null;
-  let imgMimeType = "";
-  const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
-  
-  // ⚠️ यहाँ अपनी Gemini API Key डालें
-  const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE"; 
-
-  function handleImageSelection(input) {
-     const file = input.files[0]; if(!file) return;
-     imgMimeType = file.type;
-     const reader = new FileReader();
-     reader.onload = function(e) {
-        base64ImgData = e.target.result.split(',')[1];
-        document.getElementById("targetImgPreview").src = e.target.result;
-        document.getElementById("imgPreviewBar").style.display = "flex";
-     };
-     reader.readAsDataURL(file);
-  }
-
-  function clearSelectedImage() {
-     base64ImgData = null; imgMimeType = "";
-     document.getElementById("chatImageFile").value = "";
-     document.getElementById("imgPreviewBar").style.display = "none";
-  }
-
-  function appendMsg(role, text, imgSrc = null) {
-    const chatMessages = document.getElementById("chatMessages");
-    const div = document.createElement('div'); div.className = 'msg ' + role;
-    let imgHTML = imgSrc ? `<img src="${imgSrc}" class="chat-img-preview" />` : "";
-    div.innerHTML = `<div class="msg-avatar">${role==='bot'?'🤖':'👤'}</div><div class="msg-bubble">${formatText(text)}${imgHTML}</div>`;
-    chatMessages.appendChild(div); chatMessages.scrollTop = chatMessages.scrollHeight;
-  }
-
-  function formatText(text) {
-    return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
-  }
-
-  async function sendMessage() {
-    const chatInput = document.getElementById("chatInput");
-    const sendBtn = document.getElementById("sendBtn");
-    const query = chatInput.value.trim();
-    if (!query && !base64ImgData) return;
-
-    let savedImgData = base64ImgData ? document.getElementById("targetImgPreview").src : null;
-    appendMsg('user', query || "Attached Asset 👇", savedImgData);
-    chatInput.value = "";
-
-    let activeBase64 = base64ImgData; let activeMime = imgMimeType;
-    clearSelectedImage();
-
-    chatInput.disabled = true; sendBtn.disabled = true;
-
-    let parts = [{ text: `You are a highly efficient customized AI assistant. Break down solutions clearly in clean Hinglish. Query: ${query}` }];
-    if(activeBase64) { parts.push({ inlineData: { mimeType: activeMime, data: activeBase64 } }); }
-
-    try {
-      const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ contents: [{ parts: parts }] })
-      });
-      const data = await response.json();
-      if (data.candidates && data.candidates[0].content.parts[0].text) {
-         appendMsg('bot', data.candidates[0].content.parts[0].text);
-      } else {
-         appendMsg('bot', "Processing pipeline hit an execution limit. Please resend.");
-      }
-    } catch (e) {
-      appendMsg('bot', "System Core notification: API Key setup verification needed or network timeout.");
-    } finally {
-      chatInput.disabled = false; sendBtn.disabled = false; chatInput.focus();
-    }
+    
+    const navItems = document.querySelectorAll('.nav-strip .nav-item');
+    const bbarItems = document.querySelectorAll('.bottom-premium-bar .bbar-item');
+    
+    if(name === 'home') { navItems[0].classList.add('active'); bbarItems[0].classList.add('active'); }
+    if(name === 'schedule') { navItems[1].classList.add('active'); bbarItems[1].classList.add('active'); }
+    if(name === 'dpp') { navItems[2].classList.add('active'); bbarItems[3].classList.add('active'); }
+    if(name === 'ai') { navItems[3].classList.add('active'); bbarItems[2].classList.add('active'); }
   }
 </script>
 </body>
