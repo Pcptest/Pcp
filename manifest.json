@@ -1,0 +1,26 @@
+{
+  "name": "PCP Digital Hub",
+  "short_name": "PCP Portal",
+  "description": "PCP Sikar - NEET/JEE Study Material, DPP & Notes",
+  "start_url": "/Pcptest/",
+  "display": "standalone",
+  "background_color": "#0a1628",
+  "theme_color": "#0a1628",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education"],
+  "lang": "hi"
+}
