@@ -29,6 +29,7 @@
       --text-main: #ffffff;
       --text-muted: #789281;
       --red: #e74c3c;
+      --cyber-glow: rgba(46, 204, 113, 0.25);
     }
 
     body {
@@ -130,6 +131,7 @@
     .quiz-opt-row { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.01); border: 1px solid var(--glass-border); padding: 11px 14px; border-radius: 8px; margin-bottom: 8px; font-size: 12.5px; cursor: pointer; }
     .quiz-opt-row input { accent-color: var(--neon-green); }
     .quiz-action-btn { width: 100%; background: linear-gradient(45deg, var(--neon-green), var(--emerald)); color: #000; border: none; padding: 14px; font-weight: 800; font-size: 13px; border-radius: 10px; cursor: pointer; text-transform: uppercase; }
+    .quiz-action-btn:disabled { background: #223a2b; color: #555; cursor: not-allowed; box-shadow: none; }
     .quiz-report-card { padding: 16px; border-radius: 12px; background: #0f2413; border: 1px solid var(--neon-green); text-align: center; margin-top: 15px; display: none; }
 
     /* Global Footer & App Bar Systems */
@@ -138,20 +140,28 @@
     .b-item span { display: block; font-size: 18px; margin-bottom: 2px; }
     .b-item.active { color: var(--neon-green); }
 
-    .overlay { display: none; position: fixed; inset: 0; background: rgba(3,9,4,0.97); backdrop-filter: blur(8px); z-index: 200; align-items: center; justify-content: center; padding: 16px; overflow-y: auto; }
+    /* OVERLAY AND ULTRA HACKER DEV COOL PANEL */
+    .overlay { display: none; position: fixed; inset: 0; background: rgba(2, 6, 3, 0.94); backdrop-filter: blur(12px); z-index: 200; align-items: center; justify-content: center; padding: 16px; overflow-y: auto; }
     .overlay.active { display: flex; }
-    .pass-panel { background: #0b140d; border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px; text-align: center; width: 100%; max-width: 300px; }
-    .pass-panel input { width: 100%; padding: 12px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); border-radius: 8px; color: #fff; text-align: center; margin-bottom: 12px; outline: none; font-size: 14px; letter-spacing: 2px; }
+    
+    .pass-panel { background: #0b140d; border: 1px solid var(--glass-border); padding: 24px; border-radius: 16px; text-align: center; width: 100%; max-width: 300px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    .pass-panel input { width: 100%; padding: 12px; background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); border-radius: 8px; color: #fff; text-align: center; margin-bottom: 12px; outline: none; font-size: 14px; letter-spacing: 2px; }
     .pass-panel button { width: 100%; background: var(--neon-green); color:#000; border:none; padding:12px; border-radius:8px; font-weight:700; cursor:pointer; }
     
-    .deck-panel { background: #040905; border: 1px solid rgba(46,204,113,0.2); width: 100%; max-width: 480px; padding: 20px; border-radius: 16px; color: #fff; margin: auto; }
-    .deck-panel h3 { font-size: 14px; color: var(--neon-green); margin-bottom: 14px; text-transform: uppercase; }
-    .deck-panel input[type="text"], .deck-panel textarea { width: 100%; background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); border-radius: 8px; padding: 10px; color: #fff; margin-bottom: 10px; outline: none; font-family: inherit; font-size: 12px; }
-    .deck-section { border-top: 1px dashed var(--glass-border); padding-top: 12px; margin-top: 8px; }
-    .deck-section h4 { font-size: 11.5px; color: var(--gold); margin-bottom: 8px; }
+    /* COOL GLASS DEV PANEL SYSTEM */
+    .deck-panel { background: rgba(11, 22, 14, 0.75); border: 1px solid rgba(46,204,113,0.3); width: 100%; max-width: 500px; padding: 24px; border-radius: 20px; color: #fff; margin: auto; box-shadow: 0 0 35px var(--cyber-glow); backdrop-filter: blur(10px); }
+    .deck-panel h3 { font-size: 16px; font-weight: 800; color: var(--neon-green); margin-bottom: 18px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px dashed rgba(46,204,113,0.2); padding-bottom: 8px; }
+    .deck-panel label { font-size: 10px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; display: block; margin-bottom: 4px; margin-top: 8px; }
+    .deck-panel input[type="text"], .deck-panel textarea { width: 100%; background: rgba(0,0,0,0.5); border: 1px solid var(--glass-border); border-radius: 8px; padding: 11px; color: #fff; margin-bottom: 6px; outline: none; font-family: inherit; font-size: 12.5px; transition: border 0.2s; }
+    .deck-panel input[type="text"]:focus, .deck-panel textarea:focus { border-color: var(--neon-green); }
     
-    .btn-push { width: 100%; background: linear-gradient(45deg, var(--neon-green), var(--emerald)); color: #000; border: none; padding: 12px; font-weight: 800; border-radius: 8px; cursor: pointer; text-transform: uppercase; font-size: 12px; }
-    .btn-close { width: 100%; background: transparent; color: var(--text-muted); border: 1px solid var(--glass-border); padding: 10px; border-radius: 8px; margin-top: 6px; cursor: pointer; font-size: 11.5px; }
+    .deck-section { background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); padding: 14px; border-radius: 12px; margin-top: 14px; }
+    .deck-section h4 { font-size: 12px; color: var(--gold); margin-bottom: 10px; font-weight: 700; text-transform: uppercase; display: flex; align-items: center; gap: 6px; }
+    
+    .btn-push { width: 100%; background: linear-gradient(45deg, var(--neon-green), var(--emerald)); color: #000; border: none; padding: 14px; font-weight: 800; border-radius: 10px; cursor: pointer; text-transform: uppercase; font-size: 13px; margin-top: 16px; box-shadow: 0 4px 15px rgba(46,204,113,0.3); transition: transform 0.1s; }
+    .btn-push:active { transform: scale(0.98); }
+    .btn-close { width: 100%; background: transparent; color: var(--text-muted); border: 1px solid var(--glass-border); padding: 11px; border-radius: 10px; margin-top: 8px; cursor: pointer; font-size: 12px; font-weight: 600; }
+    .btn-close:hover { color: #fff; background: rgba(255,255,255,0.03); }
     
     .toast { position: fixed; bottom: 85px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--neon-green); color: #000; font-weight: 700; padding: 8px 22px; border-radius: 30px; font-size: 12px; z-index: 300; transition: transform 0.3s; pointer-events: none; }
     .toast.show { transform: translateX(-50%) translateY(0); }
@@ -259,8 +269,8 @@
        </div>
        <div class="quiz-scroller" id="quizQuestionsContainer">
           </div>
-       <div style="padding: 16px; border-top: 1px solid var(--glass-border);">
-          <button class="quiz-action-btn" onclick="submitCompleteQuiz()">Submit Complete Test</button>
+       <div style="padding: 16px; border-top: 1px solid var(--glass-border);" id="quizSubmissionBox">
+          <button class="quiz-action-btn" id="btnSubmitTest" onclick="submitCompleteQuiz()">Submit Complete Test</button>
        </div>
     </div>
     <div class="quiz-report-card" id="testResultReport"></div>
@@ -286,44 +296,44 @@
 
 <div class="overlay" id="devDeckOverlay">
   <div class="deck-panel">
-    <h3>⚙ Realtime Production Link Sync Control Panel</h3>
+    <h3>⚡ Core Database &amp; Asset Sync Terminal</h3>
     
-    <label style="font-size:10px; color:var(--text-muted)">Mon-Sat Routine Structure</label>
-    <input type="text" id="dev_monsat" />
+    <label>Mon-Sat Routine Structure</label>
+    <input type="text" id="dev_monsat" placeholder="Class schedules description" />
 
-    <label style="font-size:10px; color:var(--text-muted)">Sunday Routine Structure</label>
-    <input type="text" id="dev_sunday" />
+    <label>Sunday Routine Structure</label>
+    <input type="text" id="dev_sunday" placeholder="Sunday backlog template" />
 
     <div class="deck-section">
-      <h4>📣 Broadcast New Official Notice</h4>
-      <textarea id="dev_notice" rows="2" placeholder="Write comprehensive notice message..."></textarea>
+      <h4>📣 Broadcast New Notice Node</h4>
+      <textarea id="dev_notice" rows="2" placeholder="Write institutional updates or notices here..."></textarea>
     </div>
 
     <div class="deck-section">
-      <h4>📺 Add Lecture Stream With Custom Thumbnail</h4>
+      <h4>📺 Inject Lecture Video Track</h4>
       <input type="text" id="dev_v_title" placeholder="Lecture Title Name" />
-      <input type="text" id="dev_v_url" placeholder="Lecture Video URL Link (.mp4)" />
-      <input type="text" id="dev_v_thumb" placeholder="Custom Thumbnail Image Link URL" />
+      <input type="text" id="dev_v_url" placeholder="Video Stream URL Link (.mp4 / Cloud File)" />
+      <input type="text" id="dev_v_thumb" placeholder="Custom Thumbnail Graphic URL Link" />
     </div>
 
     <div class="deck-section">
-      <h4>📄 Add Document/Paper Link (Google Drive / GitHub)</h4>
-      <input type="text" id="dev_p_title" placeholder="Paper Evaluation Title" />
-      <input type="text" id="dev_p_url" placeholder="Document File URL Link (PDF/GitHub Raw)" />
+      <h4>📄 Deploy GitHub Repo Examination Sheets</h4>
+      <input type="text" id="dev_p_title" placeholder="Paper Name (e.g., Major Test-01 PDF)" />
+      <input type="text" id="dev_p_url" placeholder="Paste GitHub Raw/Blob URL or Drive PDF Link" />
     </div>
 
     <div class="deck-section">
-      <h4>🧠 Append New Quiz Question to Active Test Block</h4>
-      <input type="text" id="dev_q_text" placeholder="Question Core Text" />
-      <input type="text" id="dev_q_a" placeholder="Option A" />
-      <input type="text" id="dev_q_b" placeholder="Option B" />
-      <input type="text" id="dev_q_c" placeholder="Option C" />
-      <input type="text" id="dev_q_d" placeholder="Option D" />
-      <input type="text" id="dev_q_ans" placeholder="Correct Answer Token (A, B, C, or D)" />
+      <h4>🧠 Append Quiz Node Question Matrix</h4>
+      <input type="text" id="dev_q_text" placeholder="Question String Text" />
+      <input type="text" id="dev_q_a" placeholder="Option A Description" />
+      <input type="text" id="dev_q_b" placeholder="Option B Description" />
+      <input type="text" id="dev_q_c" placeholder="Option C Description" />
+      <input type="text" id="dev_q_d" placeholder="Option D Description" />
+      <input type="text" id="dev_q_ans" placeholder="Correct Token (A, B, C, or D)" />
     </div>
 
-    <button class="btn-push" onclick="commitProductionData()">💾 Sync &amp; Deploy Assets</button>
-    <button class="btn-close" onclick="document.getElementById('devDeckOverlay').classList.remove('active')">Close Dashboard</button>
+    <button class="btn-push" onclick="commitProductionData()">💾 Push Changes to Production Node</button>
+    <button class="btn-close" onclick="document.getElementById('devDeckOverlay').classList.remove('active')">Terminate Session</button>
   </div>
 </div>
 
@@ -345,6 +355,7 @@
   const db = firebase.database();
   const GATE_KEY = "PCP@2026";
   let loadedQuizAnswers = {};
+  let isTestSubmitted = false;
 
   // Realtime Live Update Routing Pipeline
   db.ref("link_hub_production").on("value", (snapshot) => {
@@ -396,7 +407,7 @@
         lecturesWrapper.innerHTML = `<div style="text-align:center;color:var(--text-muted);font-size:12px;padding:24px;">No video lecture records added.</div>`;
      }
 
-     // Render Papers Archive System (Drive / GitHub Repository Source Links)
+     // Render Papers Archive System (Direct GitHub Repository Source Links Mapped Safely)
      const papersWrapper = document.getElementById("papersContainer");
      papersWrapper.innerHTML = "";
      if(data.papers) {
@@ -412,26 +423,28 @@
      }
 
      // Render Interactive Dynamic Live Test Arena Array Block
-     const quizWrapper = document.getElementById("quizQuestionsContainer");
-     quizWrapper.innerHTML = "";
-     loadedQuizAnswers = {};
-     if(data.quizBlock) {
-        const questionsList = Object.entries(data.quizBlock);
-        document.getElementById("quizTotalLabel").textContent = `Questions: ${questionsList.length}`;
-        questionsList.forEach(([key, q]) => {
-           loadedQuizAnswers[key] = q.ans.toUpperCase().trim();
-           quizWrapper.innerHTML += `
-              <div class="quiz-card-node">
-                 <div class="quiz-q-txt">Q) ${q.question}</div>
-                 <label class="quiz-opt-row"><input type="radio" name="q_${key}" value="A"> A) ${q.a}</label>
-                 <label class="quiz-opt-row"><input type="radio" name="q_${key}" value="B"> B) ${q.b}</label>
-                 <label class="quiz-opt-row"><input type="radio" name="q_${key}" value="C"> C) ${q.c}</label>
-                 <label class="quiz-opt-row"><input type="radio" name="q_${key}" value="D"> D) ${q.d}</label>
-              </div>`;
-        });
-     } else {
-        document.getElementById("quizTotalLabel").textContent = "Questions: 0";
-        quizWrapper.innerHTML = `<div style="text-align:center;color:var(--text-muted);font-size:12px;padding:24px;">No interactive assessment online right now.</div>`;
+     if(!isTestSubmitted) {
+        const quizWrapper = document.getElementById("quizQuestionsContainer");
+        quizWrapper.innerHTML = "";
+        loadedQuizAnswers = {};
+        if(data.quizBlock) {
+           const questionsList = Object.entries(data.quizBlock);
+           document.getElementById("quizTotalLabel").textContent = `Questions: ${questionsList.length}`;
+           questionsList.forEach(([key, q]) => {
+              loadedQuizAnswers[key] = q.ans.toUpperCase().trim();
+              quizWrapper.innerHTML += `
+                 <div class="quiz-card-node">
+                    <div class="quiz-q-txt">Q) ${q.question}</div>
+                    <label class="quiz-opt-row"><input type="radio" name="q_${key}" value="A"> A) ${q.a}</label>
+                    <label class="quiz-opt-row"><input type="radio" name="q_${key}" value="B"> B) ${q.b}</label>
+                    <label class="quiz-opt-row"><input type="radio" name="q_${key}" value="C"> C) ${q.c}</label>
+                    <label class="quiz-opt-row"><input type="radio" name="q_${key}" value="D) " value="D"> D) ${q.d}</label>
+                 </div>`;
+           });
+        } else {
+           document.getElementById("quizTotalLabel").textContent = "Questions: 0";
+           quizWrapper.innerHTML = `<div style="text-align:center;color:var(--text-muted);font-size:12px;padding:24px;">No interactive assessment online right now.</div>`;
+        }
      }
   });
 
@@ -448,8 +461,9 @@
      videoPlayer.play();
   }
 
-  // Interactive Online Assessment Submission Logic Engine
+  // ONE TIME ACTION ASSESMENT TERMINAL EVALUATION MATRIX
   function submitCompleteQuiz() {
+     if(isTestSubmitted) return;
      const keys = Object.keys(loadedQuizAnswers);
      if(keys.length === 0) { alert("Test engine is inactive!"); return; }
      
@@ -464,15 +478,25 @@
      });
 
      if(unattempted > 0) {
-        if(!confirm(`Aapne ${unattempted} questions coordinate nahi kiye hain. Submit karein?`)) return;
+        if(!confirm(`Aapne ${unattempted} questions coordinate nahi kiye hain. Ek baar submit karne ke baad answers change nahi honge. Submit karein?`)) return;
+     } else {
+        if(!confirm("Kya aap such me test submit karna chahte hain? Iske baad aap badlaav nahi kar sakte.")) return;
      }
+
+     // Lock down state matrix
+     isTestSubmitted = true;
+     document.getElementById("btnSubmitTest").disabled = true;
+     document.getElementById("quizSubmissionBox").style.display = "none";
+     
+     // Freeze inputs
+     document.querySelectorAll('#quizQuestionsContainer input').forEach(input => input.disabled = true);
 
      const reportBox = document.getElementById("testResultReport");
      reportBox.style.display = "block";
      reportBox.innerHTML = `
         <h3 style="font-size:14px;color:var(--neon-green)">🎯 Instant Score Matrix Card</h3>
         <p style="font-size:24px;font-weight:800;margin:10px 0;letter-spacing:1px;">Result: ${score} / ${totalQuestions}</p>
-        <p style="font-size:11px;color:var(--text-muted)">Accuracy verification verified on secure browser client successfully.</p>
+        <p style="font-size:11px;color:var(--red);font-weight:600;">🔒 Submission locked. Re-submission is disabled for this session.</p>
      `;
      reportBox.scrollIntoView({ behavior: 'smooth' });
   }
@@ -584,4 +608,3 @@
 </script>
 </body>
 </html>
-            
